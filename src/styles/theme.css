@@ -1,0 +1,82 @@
+/* Theme choices are shared by every page. Drawn artwork keeps its own paper. */
+:root { color-scheme: light; }
+.theme-toggle { display: inline-flex; flex-shrink: 0; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 50%; }
+.theme-toggle:hover { background: var(--sage); }
+.theme-sun { display: none; }
+[data-theme='dark'] .theme-moon { display: none; }
+[data-theme='dark'] .theme-sun { display: inline; }
+[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #151e1b;
+  --ink: #e4e9df;
+  --green: #b2d0bf;
+  --muted: #b0b9af;
+  --line: #3a483e;
+  --sage: #22302a;
+  --orange: #efa57e;
+}
+[data-theme='dark'] ::selection { color: #edf1e8; background: #44634e; }
+[data-theme='dark'] .site-header { background: #151e1bf5; }
+[data-theme='dark'] .header-resume { border-color: var(--line); }
+[data-theme='dark'] .button-primary:hover { background: #c7dfd0; }
+[data-theme='dark'] .button-light { background: #dce5d7; color: #244b3f; }
+[data-theme='dark'] .button-light:hover { background: #edf1e7; }
+[data-theme='dark'] .skip-link { background: #b2d0bf; color: #151e1b; }
+[data-theme='dark'] .project-card,
+[data-theme='dark'] .community-card,
+[data-theme='dark'] .qualification-grid a,
+[data-theme='dark'] .diary-card,
+[data-theme='dark'] .diary-search { background: #1b2722; }
+[data-theme='dark'] .project-summary,
+[data-theme='dark'] .other-build > span,
+[data-theme='dark'] .other-build-top,
+[data-theme='dark'] .project-meta > span:last-child,
+[data-theme='dark'] .qualification-grid a svg,
+[data-theme='dark'] .diary-search { color: var(--muted); }
+[data-theme='dark'] .tags span { border-color: var(--line); }
+[data-theme='dark'] .hero-art { background: #d5dfd1; color: #244b3f; }
+[data-theme='dark'] .art-tag { background: #f7f6f0; }
+[data-theme='dark'] .project-visual { color: #244b3f; }
+[data-theme='dark'] .visual-nanolink .link-before { color: #5f6e55; }
+[data-theme='dark'] .visual-nanolink .link-after { background: #244b3f; color: #f7f6f0; border-color: #244b3f; }
+[data-theme='dark'] .experience-section { background: #1b382e; color: #e4e9df; }
+[data-theme='dark'] .about-notebook,
+[data-theme='dark'] .reader-artwork figure { background: var(--sage); border-color: var(--line); }
+[data-theme='dark'] .notebook-top,
+[data-theme='dark'] .education-item,
+[data-theme='dark'] .earlier-education { border-color: var(--line); }
+[data-theme='dark'] .about-strength,
+[data-theme='dark'] .cat-corner { border-color: var(--line); }
+[data-theme='dark'] .skill-group .tags span { background: #293a31; border-color: #293a31; }
+[data-theme='dark'] .creative-teaser { background: var(--sage); }
+[data-theme='dark'] .creative-teaser p:not(.section-label),
+[data-theme='dark'] .teaser-note,
+[data-theme='dark'] .creative-handnote,
+[data-theme='dark'] .cat-footnote { color: var(--muted); }
+[data-theme='dark'] .creative-asterisk,
+[data-theme='dark'] .cat-heading > span,
+[data-theme='dark'] .interest-number,
+[data-theme='dark'] .creative-interest > svg,
+[data-theme='dark'] .beyond-handnote,
+[data-theme='dark'] .reader-tags span,
+[data-theme='dark'] .reader-art-note,
+[data-theme='dark'] .poem-end,
+[data-theme='dark'] .diary-prose .reader-signature,
+[data-theme='dark'] .diary-no-results > svg { color: var(--green); }
+[data-theme='dark'] .diary-filters button:hover { background: var(--sage); }
+[data-theme='dark'] .cat-paper { background: #f7f6f0; color: #244b3f; border-color: #83917b; }
+[data-theme='dark'] .cat-paper-note { color: #a24b2b; }
+@media (max-width: 1100px) and (min-width: 821px) {
+  .header-inner { gap: 18px; }
+  .site-nav { gap: 20px; }
+}
+@media (max-width: 820px) {
+  .theme-toggle { order: 2; }
+}
+@media (max-width: 600px) {
+  .header-inner { grid-template-columns: minmax(0, 1fr) auto auto auto; }
+  .theme-toggle { width: 32px; height: 32px; }
+  .header-resume { gap: 5px; padding-inline: 6px; }
+  .header-resume > svg { display: none; }
+  .wordmark-caption { max-width: 130px; font-size: var(--text-small); }
+}

@@ -6,6 +6,7 @@ import '@fontsource-variable/dm-sans/wght.css';
 import '@fontsource/instrument-serif/latin-400.css';
 import '@fontsource/instrument-serif/latin-400-italic.css';
 import '../styles/global.css';
+import '../styles/theme.css';
 
 interface Props { title?: string; description?: string; article?: boolean; noindex?: boolean }
 const { title = 'Padmaja Mazumder — Developer & Curious Builder', description = profile.description, article = false, noindex = false } = Astro.props;
@@ -25,6 +26,18 @@ const structuredData = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f6f0" />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      (() => {
+        let theme;
+        try { theme = localStorage.getItem('portfolio-theme'); } catch {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#151e1b' : '#f7f6f0');
+      })();
+    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}

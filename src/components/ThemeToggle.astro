@@ -1,0 +1,38 @@
+---
+import Icon from './Icon.astro';
+---
+<button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode" hidden>
+  <span class="theme-moon"><Icon name="moon" size={19} /></span>
+  <span class="theme-sun"><Icon name="sun" size={19} /></span>
+</button>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('.theme-toggle');
+  const preference = window.matchMedia('(prefers-color-scheme: dark)');
+  let manualChoice = false;
+  try { manualChoice = ['light', 'dark'].includes(localStorage.getItem('portfolio-theme') ?? ''); } catch {}
+  const setTheme = (theme: 'light' | 'dark') => {
+    document.documentElement.dataset.theme = theme;
+    const label = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+    button?.setAttribute('aria-label', label);
+    button?.setAttribute('title', label);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#151e1b' : '#f7f6f0');
+  };
+  if (button) {
+    setTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      manualChoice = true;
+      setTheme(theme);
+      try { localStorage.setItem('portfolio-theme', theme); } catch {}
+    });
+    preference.addEventListener('change', (event) => {
+      if (!manualChoice) setTheme(event.matches ? 'dark' : 'light');
+    });
+    window.addEventListener('storage', (event) => {
+      if (event.key !== 'portfolio-theme') return;
+      manualChoice = event.newValue === 'light' || event.newValue === 'dark';
+      setTheme(manualChoice ? event.newValue as 'light' | 'dark' : preference.matches ? 'dark' : 'light');
+    });
+  }
+</script>

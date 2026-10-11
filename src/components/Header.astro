@@ -1,5 +1,6 @@
 ---
 import Icon from './Icon.astro';
+import ThemeToggle from './ThemeToggle.astro';
 import { profile } from '../data/portfolio';
 const atHome = Astro.url.pathname === '/';
 const onCreativePage = Astro.url.pathname.startsWith('/off-the-clock');
@@ -15,6 +16,7 @@ const onCreativePage = Astro.url.pathname.startsWith('/off-the-clock');
       <a href="/off-the-clock/" class:list={{ 'creative-nav': true, active: onCreativePage }} aria-current={onCreativePage ? 'page' : undefined}>Off the clock <Icon name="sparkle" size={14} /></a>
     </nav>
     <a href={profile.resume} class="header-resume" target="_blank" rel="noopener noreferrer">Résumé <Icon name="arrow-up-right" size={16} /></a>
+    <ThemeToggle />
   </div>
 </header>
 <script>

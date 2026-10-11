@@ -1,0 +1,26 @@
+.creative-notebook { position: relative; isolation: isolate; }
+.butterfly-border { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: clip; }
+.butterfly-sticker { position: absolute; width: 42px; height: auto; color: #8b755c; opacity: .8; }
+.butterfly-wing { fill: #ecd9be; }
+.butterfly-1 { top: 125px; left: 12px; transform: rotate(-18deg); }
+.butterfly-2 { top: 590px; right: 10px; transform: rotate(22deg); }
+.butterfly-3 { top: 34%; left: 12px; transform: rotate(12deg); }
+.butterfly-4 { top: 55%; right: 11px; transform: rotate(-20deg); }
+.butterfly-5 { bottom: 580px; left: 11px; transform: rotate(-9deg); }
+.butterfly-6 { bottom: 75px; right: 10px; transform: rotate(18deg); }
+.butterfly-3 .butterfly-wing, .butterfly-5 .butterfly-wing { fill: #d5dfc5; }
+[data-theme='dark'] .butterfly-sticker { color: #c2ab8a; opacity: .8; }
+[data-theme='dark'] .butterfly-wing { fill: #735f49; }
+[data-theme='dark'] .butterfly-3 .butterfly-wing,
+[data-theme='dark'] .butterfly-5 .butterfly-wing { fill: #53654b; }
+@media (max-width: 1300px) {
+  .butterfly-sticker { width: 28px; }
+  .butterfly-1, .butterfly-3, .butterfly-5 { left: 3px; }
+  .butterfly-2, .butterfly-4, .butterfly-6 { right: 3px; }
+}
+@media (max-width: 600px) {
+  .butterfly-sticker { width: 17px; }
+  .butterfly-1, .butterfly-3, .butterfly-5 { left: 0; }
+  .butterfly-2, .butterfly-4, .butterfly-6 { right: 0; }
+  .butterfly-5 { bottom: 620px; }
+}

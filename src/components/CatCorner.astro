@@ -7,7 +7,7 @@ import '../styles/cats.css';
 <section class="cat-corner" id="cat-corner" aria-labelledby="cat-title">
   <div class="cat-heading"><Icon name="sparkle" size={23} /><p class="section-label">THE CAT CORNER</p><span aria-hidden="true">✳</span></div>
   <h2 id="cat-title">A little <em>paws.</em></h2>
-  <p class="cat-intro">Tiny doodles. Very important cat business.</p>
+  <p class="cat-intro">Tiny doodles, terrible puns, and very important cat business.</p>
   <div class="cat-moments" aria-live="polite" aria-atomic="true">
     {catMoments.map((moment, index) => <figure class="cat-moment" hidden={index !== 0}>
       <div class="cat-paper"><CatDoodle pose={moment.pose} description={moment.description} /><span class="cat-paper-note" aria-hidden="true">{moment.note}</span></div>

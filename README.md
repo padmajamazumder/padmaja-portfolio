@@ -2,7 +2,7 @@
 
 A static Astro portfolio for software engineering opportunities, with Salesforce experience, selected projects, a shared résumé, and a creative-writing diary.
 
-Source repository: [padmajamazumder/padmaja-portfolio](https://github.com/padmajamazumder/padmaja-portfolio). Existing local history is preserved. New commits use Padmaja's repository-local identity and are unsigned.
+Source repository: [padmajamazumder/padmaja-portfolio](https://github.com/padmajamazumder/padmaja-portfolio). At the owner's request, all eight initial commits were rewritten and force-pushed with Padmaja Mazumder as author and committer, preserving their messages and file contents. New commits use Padmaja's repository-local identity and are unsigned.
 
 ## Run locally
 
@@ -25,19 +25,38 @@ npm run preview
 
 ## Deploy for free on Cloudflare Pages
 
-Use **Pages Direct Upload** to publish without a GitHub login or push:
+The owner chose **Pages with Git integration**, so pushing to `main` will publish future updates after the initial connection is configured. Use the Cloudflare account `ipadmajamazumder@gmail.com` (equivalent to `ipadmaja.mazumder@gmail.com`) and GitHub account `padmajamazumder`.
 
-1. Run `npm ci` and `npm run build` locally.
-2. Sign in to Cloudflare and open **Workers & Pages**. Create a **Pages** project using **Direct Upload / Upload assets**.
-3. Choose a project name and upload the `dist` folder, or a ZIP containing the *contents* of `dist` with `index.html` at the ZIP's root.
-4. Deploy. Cloudflare provides HTTPS and a free `your-project.pages.dev` address.
-5. Once you know the final address, copy `.env.example` to `.env`, set `PUBLIC_SITE_URL=https://your-project.pages.dev`, build again, and upload the new output. This enables the correct canonical links and absolute social-sharing image URL.
+1. In Cloudflare **Workers & Pages**, create a **Pages** project and choose **Connect to Git**.
+2. Authorize the Cloudflare Pages GitHub App for `padmajamazumder/padmaja-portfolio`. Wrangler authentication and GitHub CLI authentication are separate from this repository-access grant.
+3. Use these settings:
 
-For future updates, build again and create a new production upload in the same Pages project. This uses static hosting with no Functions or paid resources. A purchased custom domain is optional; use the included `pages.dev` address for a fully free setup. Free hosting is subject to Cloudflare's current plan terms.
+| Setting | Value |
+| --- | --- |
+| Project name | `padmaja-portfolio` |
+| Production branch | `main` |
+| Framework | Astro |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Root directory | Repository root |
+| `NODE_VERSION` | `22.23.3` |
+| `PUBLIC_SITE_URL` | The final `https://…pages.dev` URL |
 
-For Cloudflare Git integration, connect `padmajamazumder/padmaja-portfolio`, choose production branch `main`, use build command `npm run build`, output directory `dist`, and Node version `22.23.3`. Direct Upload projects cannot be converted to Git integration; that requires a new Pages project. Creating the GitHub repository does not itself deploy the website.
+4. Set the environment variables for production and previews, then deploy. Check the build status in the Pages dashboard.
+5. For local production builds, copy `.env.example` to `.env` and set the same `PUBLIC_SITE_URL`. This enables correct canonical links and absolute social-sharing image URLs.
 
-Official references: [Direct Upload](https://developers.cloudflare.com/pages/get-started/direct-upload/) · [Pages limits](https://developers.cloudflare.com/pages/platform/limits/)
+Wrangler can inspect and deploy the project once it exists. To upload a locally built version to the same project:
+
+```sh
+PUBLIC_SITE_URL=https://padmaja-portfolio.pages.dev npm run build
+npx wrangler pages deploy dist --project-name padmaja-portfolio --branch main
+```
+
+Do not use `wrangler pages project create` for the initial setup: it creates a Direct Upload project without Git integration. Git-connected project creation uses the dashboard or Cloudflare's management API after the GitHub App is authorized.
+
+This uses static hosting with no Functions or paid resources. A purchased custom domain is optional; use the included `pages.dev` address for a fully free setup. Free hosting is subject to Cloudflare's current plan terms.
+
+Official references: [Git integration](https://developers.cloudflare.com/pages/get-started/git-integration/) · [Wrangler commands](https://developers.cloudflare.com/workers/wrangler/commands/#pages) · [Pages limits](https://developers.cloudflare.com/pages/platform/limits/)
 
 ## Edit the portfolio
 
@@ -104,10 +123,10 @@ Store images in `src/assets/diary/` and keep the full artwork visible. In Markdo
 
 `docs/project-review.md` documents the public source review and the selected projects. `docs/legacy-import.md` records the previous-portfolio migration and any conflicting information; `docs/legacy-diary-source.json` preserves the extracted diary source for text comparisons. `AGENTS.md` records the owner's decisions, content rules, structure, and maintenance guidance for later sessions.
 
-Local Git commits use the repository's existing author configuration. Commit signing can be disabled per command if the configured signing key requires an unavailable interactive prompt. No remote publication is needed to run or deploy this site through Direct Upload.
+Local Git commits use Padmaja Mazumder and `141434108+padmajamazumder@users.noreply.github.com`. Commit signing is disabled in the repository configuration; keep new commits unsigned.
 
 ## GitHub maintenance
 
-The owner explicitly authorized publishing to **padmajamazumder**. Verify `gh api user --jq .login` before a push. `origin` must be `https://github.com/padmajamazumder/padmaja-portfolio.git`. Git author and credential settings are local to this repository; the credential helper uses GitHub CLI with the `padmajamazumder` username instead of the machine's other account. Authentication stays in the system keychain, never in this repository. Do not rewrite existing history to change prior author attribution.
+The owner explicitly authorized publishing to **padmajamazumder** and rewriting the initial history to their identity. Verify `gh api user --jq .login` before a push. `origin` must be `https://github.com/padmajamazumder/padmaja-portfolio.git`. Git author and credential settings are local to this repository; the credential helper uses GitHub CLI with the `padmajamazumder` username instead of the machine's other account. Authentication stays in the system keychain, never in this repository. Any further history rewrite requires a new explicit request.
 
 For future authorized changes, commit with `git -c commit.gpgsign=false commit` and push `main`. Commit source and `package-lock.json`; generated `dist/`, `node_modules/`, `.astro/`, the deployment ZIP, and local environment values remain ignored.

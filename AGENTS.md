@@ -10,7 +10,8 @@ Build Padmaja Mazumder's personal portfolio for recruiters hiring for software e
 - Host on Cloudflare Pages using its free `pages.dev` subdomain.
 - Keep runtime services, databases, paid APIs, and required subscriptions out of the portfolio.
 - Make local Git commits. Do not log in to GitHub, create a remote repository, or push without a new explicit instruction.
-- The owner explicitly authorized creating and pushing this project to `padmajamazumder/padmaja-portfolio`. Verify the authenticated CLI account is `padmajamazumder` before remote writes. Do not use the machine's other GitHub account. Preserve existing commit history; use the repository-local Padmaja identity and unsigned commits for new work. Keep credentials out of Git.
+- The owner explicitly authorized creating and pushing this project to `padmajamazumder/padmaja-portfolio`. Verify the authenticated CLI account is `padmajamazumder` before remote writes. Do not use the machine's other GitHub account. At the owner's request, the initial eight commits were rewritten and force-pushed with Padmaja Mazumder as both author and committer. Use the repository-local Padmaja identity and unsigned commits for new work. Keep credentials out of Git.
+- The owner explicitly authorized Cloudflare Pages deployment and connecting the GitHub repository for automatic builds. Verify Cloudflare authenticates as `ipadmaja.mazumder@gmail.com` or its Gmail-equivalent undotted form `ipadmajamazumder@gmail.com`. Chrome Profile 10 is the Cloudflare profile; Profile 7 is the GitHub profile. A Git-connected Pages project requires Cloudflare's GitHub App authorization; Wrangler login alone does not grant repository access.
 - Keep the supplied résumé unchanged in `public/Padmaja-Resume.pdf` as an archive. Site résumé links use the owner's public Google Drive file configured in `profile.resume`.
 
 ## Content sources

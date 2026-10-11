@@ -58,6 +58,16 @@ npx wrangler pages deploy dist --project-name padmaja --branch main
 
 Do not use `wrangler pages project create` for the initial setup: it creates a Direct Upload project without Git integration. Git-connected project creation uses the dashboard or Cloudflare's management API after the GitHub App is authorized.
 
+### Previous address
+
+The previous Pages project `padmaja-portfolio` redirects all paths to `https://padmaja.pages.dev`, preserving diary and poem links. Its automatic production and preview builds are disabled to avoid duplicate builds. Keep that project for redirects; publish portfolio changes to `padmaja`.
+
+The redirect assets are tracked in `deployment/legacy-redirect/`. To update the redirect deployment:
+
+```sh
+npx wrangler pages deploy deployment/legacy-redirect --project-name padmaja-portfolio --branch main
+```
+
 This uses static hosting with no Functions or paid resources. A purchased custom domain is optional; use the included `pages.dev` address for a fully free setup. Free hosting is subject to Cloudflare's current plan terms.
 
 Official references: [Git integration](https://developers.cloudflare.com/pages/get-started/git-integration/) · [Wrangler commands](https://developers.cloudflare.com/workers/wrangler/commands/#pages) · [Pages limits](https://developers.cloudflare.com/pages/platform/limits/)

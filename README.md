@@ -2,6 +2,8 @@
 
 A static Astro portfolio for software engineering opportunities, with Salesforce experience, selected projects, a shared résumé, and a creative-writing diary.
 
+Source repository: [padmajamazumder/padmaja-portfolio](https://github.com/padmajamazumder/padmaja-portfolio). Existing local history is preserved. New commits use Padmaja's repository-local identity and are unsigned.
+
 ## Run locally
 
 Use Node.js 22.12 or later. The project pins Node 22.23.3 in `.node-version` and `.nvmrc`.
@@ -33,7 +35,7 @@ Use **Pages Direct Upload** to publish without a GitHub login or push:
 
 For future updates, build again and create a new production upload in the same Pages project. This uses static hosting with no Functions or paid resources. A purchased custom domain is optional; use the included `pages.dev` address for a fully free setup. Free hosting is subject to Cloudflare's current plan terms.
 
-If you later choose Git integration, use build command `npm run build`, output directory `dist`, and Node version `22.23.3`. Direct Upload projects cannot be converted to Git integration; that requires a new Pages project. No GitHub remote is configured for this project.
+For Cloudflare Git integration, connect `padmajamazumder/padmaja-portfolio`, choose production branch `main`, use build command `npm run build`, output directory `dist`, and Node version `22.23.3`. Direct Upload projects cannot be converted to Git integration; that requires a new Pages project. Creating the GitHub repository does not itself deploy the website.
 
 Official references: [Direct Upload](https://developers.cloudflare.com/pages/get-started/direct-upload/) · [Pages limits](https://developers.cloudflare.com/pages/platform/limits/)
 
@@ -52,6 +54,8 @@ Official references: [Direct Upload](https://developers.cloudflare.com/pages/get
 - **Diary and reading-page styles:** `src/styles/diary.css`.
 - **Cat corner captions and poses:** `src/data/cats.ts`; interaction in `src/components/CatCorner.astro`, original SVG artwork in `src/components/CatDoodle.astro`, and styles in `src/styles/cats.css`.
 - **Colors, typography, spacing, responsive layouts:** `src/styles/global.css`.
+- **Light/dark mode:** `src/components/ThemeToggle.astro` and `src/styles/theme.css`. The small header button changes the theme on every page. The first visit follows the device preference; a selected theme is saved locally and shared between pages/tabs. The inline script in `BaseLayout.astro` applies it before rendering. Storage failures fall back gracefully; static content works without JavaScript.
+- **Butterfly decorations:** `src/components/ButterflyBorder.astro` and `src/styles/butterflies.css`, used only by the Off the clock index. These decorative SVG stickers stay in the margins, have no animation, and are hidden from assistive technology.
 - **Small text:** `--text-small` in `src/styles/global.css` controls the enlarged 14px labels, tags, metadata, and other text previously sized at 12px or below, including mobile and diary styles. Existing larger text and headline sizes are unchanged.
 - **Page metadata:** `src/layouts/BaseLayout.astro` and `PUBLIC_SITE_URL`.
 - **Sharing artwork:** `public/social-card.png`, generated from `public/social-card.svg`.
@@ -60,7 +64,7 @@ The résumé supplied for this project is stored unchanged. Work history and cod
 
 The owner supplied the updated contact address `ipadmaja.mazumder@gmail.com` and the time-management strength described in About. The previous three-number highlights strip has been removed; the LeetCode and Codeforces profiles are linked below “Worked with” without counts or ratings.
 
-The cat corner replaces the fantasy prompt jar with six original SVG doodles and lighthearted UI captions. It chooses a random scene when the page opens. “Another cat” changes both drawing and caption without an immediate repeat. It does not auto-rotate while someone is reading. There are no API calls, image downloads, credentials, tracking, or subscriptions. With JavaScript disabled, the first doodle and caption remain visible. Cat captions are separate from the owner's published poetry.
+The cat corner replaces the fantasy prompt jar with six original SVG doodles and cute cat jokes. It chooses a random scene when the page opens. “Another cat” changes both drawing and joke without an immediate repeat. It does not auto-rotate while someone is reading. There are no API calls, image downloads, credentials, tracking, or subscriptions. With JavaScript disabled, the first doodle and joke remain visible. Cat jokes are separate from the owner's published poetry.
 
 ## Publish creative writing
 
@@ -101,3 +105,9 @@ Store images in `src/assets/diary/` and keep the full artwork visible. In Markdo
 `docs/project-review.md` documents the public source review and the selected projects. `docs/legacy-import.md` records the previous-portfolio migration and any conflicting information; `docs/legacy-diary-source.json` preserves the extracted diary source for text comparisons. `AGENTS.md` records the owner's decisions, content rules, structure, and maintenance guidance for later sessions.
 
 Local Git commits use the repository's existing author configuration. Commit signing can be disabled per command if the configured signing key requires an unavailable interactive prompt. No remote publication is needed to run or deploy this site through Direct Upload.
+
+## GitHub maintenance
+
+The owner explicitly authorized publishing to **padmajamazumder**. Verify `gh api user --jq .login` before a push. `origin` must be `https://github.com/padmajamazumder/padmaja-portfolio.git`. Git author and credential settings are local to this repository; the credential helper uses GitHub CLI with the `padmajamazumder` username instead of the machine's other account. Authentication stays in the system keychain, never in this repository. Do not rewrite existing history to change prior author attribution.
+
+For future authorized changes, commit with `git -c commit.gpgsign=false commit` and push `main`. Commit source and `package-lock.json`; generated `dist/`, `node_modules/`, `.astro/`, the deployment ZIP, and local environment values remain ignored.

@@ -10,6 +10,7 @@ Build Padmaja Mazumder's personal portfolio for recruiters hiring for software e
 - Host on Cloudflare Pages using its free `pages.dev` subdomain.
 - Keep runtime services, databases, paid APIs, and required subscriptions out of the portfolio.
 - Make local Git commits. Do not log in to GitHub, create a remote repository, or push without a new explicit instruction.
+- The owner explicitly authorized creating and pushing this project to `padmajamazumder/padmaja-portfolio`. Verify the authenticated CLI account is `padmajamazumder` before remote writes. Do not use the machine's other GitHub account. Preserve existing commit history; use the repository-local Padmaja identity and unsigned commits for new work. Keep credentials out of Git.
 - Keep the supplied résumé unchanged in `public/Padmaja-Resume.pdf` as an archive. Site résumé links use the owner's public Google Drive file configured in `profile.resume`.
 
 ## Content sources
@@ -47,6 +48,8 @@ Use warm cream, deep green, restrained orange accents, generous spacing, and rea
 The toolkit heading is “Worked with”. Use `--text-small` (14px) for text previously at 12px or below; preserve larger text and headline sizes.
 
 Keep the three-number highlights strip removed. Link to the LeetCode and Codeforces profiles below the toolkit without displaying counts or ratings. The former fantasy prompt jar is replaced by a cat corner: local SVG doodles and playful captions in `src/data/cats.ts`, selected on page load or with “Another cat”. Keep the interaction free of runtime APIs, automatic rotation, and personal-poetry attribution.
+
+The header has a light/dark toggle. Respect device preference until the visitor makes a choice, then save that choice locally. Maintain readable contrast in both themes and preserve original artwork. Butterfly stickers are restricted to the Off the clock index and must remain decorative, static, and outside readable content. The cat captions are cute jokes, separate from personal poetry.
 
 ## Validation and maintenance
 

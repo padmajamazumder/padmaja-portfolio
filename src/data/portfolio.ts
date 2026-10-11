@@ -96,6 +96,44 @@ export const education = [
   { school: 'IIT Madras', degree: 'B.S · Data Science & Programming', dates: '2023 — 2027', note: 'Foundation level and Diploma in Programming completed' },
 ];
 
+export const earlierEducation = [
+  { school: 'Rajdhani Public School', degree: 'Higher secondary · AISSCE · PCM + Biology', dates: '2020 — 2022', location: 'Assam' },
+  { school: 'Pranabananda Vidyamandir', degree: 'Schooling · AISSE · Computer Science', dates: '2008 — 2020', location: 'Assam' },
+];
+
+export const communityRoles = [
+  {
+    organization: 'Google Developer Student Club', context: 'NIT Silchar', role: 'Cloud Team Core Executive · Senior Marketing Executive',
+    description: 'Helped run club orientation and interviewed 58 juniors. Organized Web Blitz 4.0 for 40+ attendees, Prototype Plenary 4.0 for 55+, and a Git/GitHub workshop for 25+.',
+  },
+  {
+    organization: 'Illuminits', context: 'NIT Silchar', role: 'Junior Executive · Marketing',
+    description: 'Coordinated Graffiti with 30+ participants and the Literary Premier League with 60+ attendees, bringing people together through literature and campus events.',
+  },
+  {
+    organization: 'White Hat Guild', context: 'IIT Madras · Remote', role: 'Core Executive · Cybersecurity Club',
+    description: 'Contributed to the cybersecurity community and delivered workshops in 2024 and 2025.',
+  },
+  {
+    organization: 'Sundarbans House', context: 'IIT Madras · Remote', role: 'Marketing, Events & Technical Team',
+    description: 'Contributed to house activities through marketing, event management, and the technical team.',
+  },
+  {
+    organization: 'Campus culture & events', context: 'NIT Silchar', role: 'Cultural Coordination · Marketing',
+    description: 'Participated in Deprador and Kaladarshan, conducted debates for 25+ attendees, and held marketing roles with Incandescence, POSUA, and Oikyotaan.',
+  },
+  {
+    organization: 'Gyansagar & Think India', context: 'NIT Silchar', role: 'Social Service · Empowering Minds',
+    description: 'Participated in the Gyansagar Social Service Wing and Think India NITS Students Fraternity’s Empowering Minds initiative.',
+  },
+];
+
+export const creativeInterests = [
+  { title: 'Dance', description: 'Trained in Ravindra nritya and Nazrul nritya.', icon: 'rhythm' },
+  { title: 'Classical music', description: 'Studied classical music in the Bhatkhande tradition.', icon: 'music' },
+  { title: 'Spanish guitar', description: 'Another way to find a little rhythm, with training in Spanish guitar.', icon: 'music' },
+];
+
 export const qualifications = [
   { title: 'Diploma in Programming', issuer: 'IIT Madras', url: 'https://drive.google.com/file/d/1fWuwXlwdQeGwpeL2yGYkxhAB4bB9eLeK/view' },
   { title: 'Foundation · Programming & Data Science', issuer: 'IIT Madras', url: 'https://drive.google.com/file/d/1gAoKPJhoM7PrgCpuGDhyUxQaXxYnDUpq/view' },

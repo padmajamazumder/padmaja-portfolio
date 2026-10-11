@@ -54,4 +54,4 @@ Reviewed on 11 October 2026 using public source archives. This is a static sourc
 
 ## Personal content
 
-Work history, education, coding-profile metrics, and existing qualification links are transcribed from the supplied résumé. Salesforce certificate titles and creative stories were not supplied. The creative page contains a local writing-prompt interaction, with prompts labeled as such, and an honest empty state for published writing.
+Work history, degree dates, coding-profile metrics, and existing qualification links are transcribed from the supplied résumé. Salesforce certificate titles were not supplied. The owner subsequently authorized importing the previous portfolio's diary, earlier education, community details, and arts training. See `docs/legacy-import.md`: the creative page now contains all eight original poems with their paired images, alongside the labeled writing-prompt interaction.

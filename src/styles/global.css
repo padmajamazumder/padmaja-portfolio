@@ -17,7 +17,8 @@ body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; }
 button { cursor: pointer; }
-button[hidden] { display: none !important; }
+[hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 button, a, summary { -webkit-tap-highlight-color: transparent; }
 a, button, summary { touch-action: manipulation; }
 a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--orange); outline-offset: 6px; border-radius: 3px; }
@@ -206,6 +207,30 @@ h3, h4 { font-weight: 600; line-height: 1.3; }
 .community-note .section-label { font-size: 7px; }
 .community-note p { font-size: 10px; margin-top: 7px; }
 .community-note small { display: block; font-size: 9px; color: var(--muted); margin-top: 5px; }
+.earlier-education { border-bottom: 1px solid #d5d6c8; }
+.earlier-education summary { display: flex; justify-content: space-between; align-items: center; list-style: none; cursor: pointer; padding-block: 16px; font-size: 12px; }
+.earlier-education summary::-webkit-details-marker { display: none; }
+.earlier-education summary > span { font-size: 20px; }
+.earlier-education[open] summary > span { transform: rotate(45deg); }
+.earlier-school { padding-bottom: 19px; }
+.earlier-school > span { font-size: 9px; color: var(--muted); }
+.earlier-school h4 { font-size: 14px; font-weight: 500; margin-top: 4px; }
+.earlier-school p { font-size: 10px; color: var(--muted); margin-top: 5px; }
+.education-footnote { padding-top: 19px; }
+.education-footnote .section-label { font-size: 7px; }
+.education-footnote p { margin-top: 7px; font-size: 10px; color: var(--muted); }
+.community-section { margin-top: 60px; padding-top: 31px; border-top: 1px solid var(--line); }
+.community-heading { display: flex; justify-content: space-between; align-items: end; gap: 25px; }
+.community-heading .section-label { font-size: 8px; color: var(--muted); }
+.community-heading h3 { margin-top: 10px; font-size: 30px; font-weight: 500; letter-spacing: -.035em; }
+.community-heading h3 em { font-family: var(--serif); font-size: 1.15em; font-weight: 400; }
+.community-heading > p { color: var(--muted); font-size: 11px; line-height: 1.8; }
+.community-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 24px; }
+.community-card { padding: 23px; border: 1px solid var(--line); border-radius: 5px; background: #fcfbf7; }
+.community-context { display: block; color: var(--muted); font-size: 9px; }
+.community-card h4 { margin-top: 8px; font-size: 17px; font-weight: 500; letter-spacing: -.025em; }
+.community-role { font-size: 10px; line-height: 1.6; margin-top: 9px; color: var(--green); }
+.community-description { color: var(--muted); font-size: 12px; line-height: 1.85; margin-top: 13px; }
 .skills-section { margin-top: 67px; padding-top: 29px; border-top: 1px solid var(--line); }
 .skills-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
 .skills-heading h3 { font-size: 19px; font-weight: 500; letter-spacing: -.02em; }
@@ -404,6 +429,8 @@ h3, h4 { font-weight: 600; line-height: 1.3; }
   .about-copy > p:not(.section-label) { font-size: 12px; }
   .about-notebook { padding-inline: 22px; }
   .skills-grid { grid-template-columns: 1fr 1fr; gap: 27px; }
+  .community-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .community-card { padding: 20px; }
   .qualification-grid { gap: 20px; }
   .creative-teaser { padding: 35px 29px; gap: 20px; }
   .teaser-star { font-size: 75px; }
@@ -516,6 +543,13 @@ h3, h4 { font-weight: 600; line-height: 1.3; }
   .education-item h3 { font-size: 22px; }
   .education-item p { font-size: 12px; }
   .skills-section { margin-top: 35px; padding-top: 26px; }
+  .community-section { margin-top: 35px; padding-top: 25px; }
+  .community-heading { display: block; }
+  .community-heading > p { margin-top: 11px; font-size: 12px; }
+  .community-grid { grid-template-columns: 1fr; gap: 14px; }
+  .community-card { padding: 21px; }
+  .community-card h4 { font-size: 19px; }
+  .community-role { font-size: 11px; }
   .skills-heading { display: block; }
   .skills-heading p { margin-top: 6px; font-size: 10px; }
   .skills-grid { gap: 25px 20px; margin-top: 22px; }

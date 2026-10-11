@@ -15,6 +15,8 @@ Build Padmaja Mazumder's personal portfolio for recruiters hiring for software e
 ## Content sources
 
 - The supplied résumé is the source for identity, work history, education, links, and résumé metrics.
+- The owner authorized importing poetry, its matching artwork, and additional personal context from `https://padmajam.vercel.app/`. Preserve the original poetry wording and titles. `docs/legacy-import.md` and `docs/legacy-diary-source.json` record the migration.
+- Use the résumé for dates where the previous portfolio conflicts. Do not invent publication dates for imported poems.
 - `src/data/portfolio.ts` contains the editable portfolio content.
 - `docs/project-review.md` records why public repositories were selected and distinguishes résumé claims from code observations.
 - Public repository source may be reviewed through anonymous HTTP requests. Do not require GitHub authentication.
@@ -27,6 +29,8 @@ Build Padmaja Mazumder's personal portfolio for recruiters hiring for software e
 - `src/pages/index.astro`: recruiter-facing home page.
 - `src/pages/off-the-clock/`: creative corner and published story pages.
 - `src/content/stories/`: Markdown stories; draft entries never appear publicly.
+- `src/assets/diary/`: original paired diary images; Astro produces optimized images at build time.
+- `src/lib/stories.ts`: shared published-entry ordering and reading metadata.
 - `src/components/`: reusable icons, navigation, project artwork, and creative interaction.
 - `src/layouts/BaseLayout.astro`: metadata and shared page structure.
 - `src/styles/global.css`: shared visual system and responsive layouts.

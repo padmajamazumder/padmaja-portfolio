@@ -1,0 +1,13 @@
+---
+import Icon from './Icon.astro';
+import { education, earlierEducation } from '../data/portfolio';
+---
+<aside class="about-notebook" aria-label="Education">
+  <div class="notebook-top"><span>A FEW CHAPTERS</span><Icon name="book" size={19} /></div>
+  {education.map((item) => <div class="education-item"><span>{item.dates}</span><h3>{item.school}</h3><p>{item.degree}</p><small>{item.note}</small></div>)}
+  <details class="earlier-education">
+    <summary>Where it began <span>+</span></summary>
+    {earlierEducation.map((item) => <div class="earlier-school"><span>{item.dates} · {item.location}</span><h4>{item.school}</h4><p>{item.degree}</p></div>)}
+  </details>
+  <div class="education-footnote"><span class="section-label">TWO PERSPECTIVES, ONE TOOLKIT</span><p>Engineering foundations meet programming & data.</p></div>
+</aside>

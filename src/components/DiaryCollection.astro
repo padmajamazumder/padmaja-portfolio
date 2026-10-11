@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import Icon from './Icon.astro';
+import { readingMinutes, formatStoryDate } from '../lib/stories';
+
+interface Props { stories: CollectionEntry<'stories'>[] }
+const { stories } = Astro.props;
+---
+<section class="diary-collection" id="notebook" aria-labelledby="notebook-title">
+  <div class="diary-heading">
+    <div><p class="section-label">01 / POETRY & PERSONAL REFLECTIONS</p><h2 id="notebook-title">Scribbling<em>.</em></h2></div>
+    <p>A few feelings, given a page.<br />Stay with the ones that speak to you.</p>
+  </div>
+
+  <div class="diary-tools" hidden>
+    <div class="diary-filters" role="group" aria-label="Browse writing by theme">
+      <button type="button" data-theme="all" aria-pressed="true">All pages</button>
+      <button type="button" data-theme="love" aria-pressed="false">Love & longing</button>
+      <button type="button" data-theme="self" aria-pressed="false">Self & society</button>
+      <button type="button" data-theme="unfiltered" aria-pressed="false">Unfiltered</button>
+    </div>
+    <label class="diary-search"><Icon name="search" size={18} /><span class="sr-only">Search titles, poem text, or themes</span><input type="search" id="diary-search" placeholder="A title, a line, a feeling…" autocomplete="off" /></label>
+  </div>
+  <div class="diary-list-meta"><span id="diary-results" role="status" aria-live="polite" aria-atomic="true">{stories.length} pages to wander through</span><span>TAKE YOUR TIME</span></div>
+
+  <div class="diary-grid">
+    {stories.map((story, index) => <a class="diary-card" href={`/off-the-clock/${story.id}/`} aria-labelledby={`title-${story.id}`} data-search={`${story.data.title} ${story.data.description} ${story.data.tags.join(' ')} ${story.body ?? ''}`} data-tags={JSON.stringify(story.data.tags)}>
+      <div class:list={['diary-cover', `cover-${story.id}`]}>
+        {story.data.cover ? <Image src={story.data.cover} alt={story.data.coverAlt ?? `Artwork accompanying ${story.data.title}`} widths={Array.from(new Set([240, 400, story.data.cover.width].filter((width) => width <= story.data.cover!.width)))} sizes="(max-width: 600px) 85vw, (max-width: 900px) 42vw, 34vw" format="webp" quality={85} loading="lazy" /> : <Icon name="book" size={60} />}
+        <span class="diary-page-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+      </div>
+      <div class="diary-card-copy">
+        <div class="diary-card-meta"><span>{story.data.genre}</span><span>{readingMinutes(story)} min read</span></div>
+        <h3 id={`title-${story.id}`}>{story.data.title}</h3>
+        <p class="diary-excerpt">{story.data.excerpt ?? story.data.description}</p>
+        <div class="diary-card-bottom"><span class="diary-theme">{story.data.tags.filter((tag) => !['Poetry', 'Personal'].includes(tag)).join(' · ') || story.data.genre}</span><span class="diary-read-link">Read the page <Icon name="arrow-up-right" size={18} /></span></div>
+        {story.data.date && <time datetime={story.data.date.toISOString()}>{formatStoryDate(story.data.date)}</time>}
+      </div>
+    </a>)}
+  </div>
+  <div class="diary-no-results" hidden><Icon name="book" size={34} /><h3>No pages found, just yet.</h3><p>Try another word, or wander through the whole notebook.</p><button class="text-link" type="button" id="diary-reset">Show all pages <Icon name="arrow-right" size={17} /></button></div>
+</section>
+
+<script>
+  const collection = document.querySelector<HTMLElement>('.diary-collection');
+  if (collection) {
+    const tools = collection.querySelector<HTMLElement>('.diary-tools');
+    const search = collection.querySelector<HTMLInputElement>('#diary-search');
+    const filters = Array.from(collection.querySelectorAll<HTMLButtonElement>('[data-theme]'));
+    const cards = Array.from(collection.querySelectorAll<HTMLAnchorElement>('.diary-card'));
+    const result = collection.querySelector<HTMLElement>('#diary-results');
+    const empty = collection.querySelector<HTMLElement>('.diary-no-results');
+    const reset = collection.querySelector<HTMLButtonElement>('#diary-reset');
+    const groups: Record<string, string[]> = {
+      love: ['Love', 'Loss', 'Relationship', 'Relationships', 'Desire'],
+      self: ['Feminism', 'Social Commentary', 'Reflection'],
+      unfiltered: ['Emotions'],
+    };
+    const normalize = (value: string) => value.normalize('NFKD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+    const entries = cards.map((card) => ({ card, text: normalize(card.dataset.search ?? ''), tags: JSON.parse(card.dataset.tags ?? '[]') as string[] }));
+    let theme = 'all';
+    const update = () => {
+      const words = normalize(search?.value ?? '').trim().split(/\s+/).filter(Boolean);
+      let count = 0;
+      entries.forEach(({ card, text, tags }) => {
+        const matchesTheme = theme === 'all' || tags.some((tag) => groups[theme]?.includes(tag));
+        const visible = matchesTheme && words.every((word) => text.includes(word));
+        card.hidden = !visible;
+        if (visible) count++;
+      });
+      filters.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.theme === theme)));
+      if (result) result.textContent = `${count} ${count === 1 ? 'page' : 'pages'}${theme === 'all' && words.length === 0 ? ' to wander through' : ' found'}`;
+      if (empty) empty.hidden = count !== 0;
+    };
+    if (tools && search && result && empty) {
+      tools.hidden = false;
+      search.addEventListener('input', update);
+      filters.forEach((button) => button.addEventListener('click', () => { theme = button.dataset.theme ?? 'all'; update(); }));
+      reset?.addEventListener('click', () => { theme = 'all'; search.value = ''; update(); search.focus(); });
+    }
+  }
+</script>

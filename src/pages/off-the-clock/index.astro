@@ -1,12 +1,35 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import PromptJar from '../../components/PromptJar.astro';
-const stories = (await getCollection('stories', ({ data }) => !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+import DiaryCollection from '../../components/DiaryCollection.astro';
+import { getPublishedStories } from '../../lib/stories';
+import { creativeInterests } from '../../data/portfolio';
+import '../../styles/diary.css';
+const stories = await getPublishedStories();
 ---
-<BaseLayout title="Off the clock — Padmaja Mazumder" description="A small corner for creative writing, fantasy worlds, and what-if prompts. The other side of Padmaja's notebook.">
-  <section class="creative-hero container"><a class="back-link" href="/"><Icon name="arrow-right" size={16} /> Back to the portfolio</a><p class="section-label">THE OTHER SIDE OF THE NOTEBOOK</p><h1>Off the <em>clock.</em><span class="creative-asterisk" aria-hidden="true">✳</span></h1><p>A place for worlds that don’t exist yet,<br class="desktop-break" /> stories without a deadline, and the occasional <em>what if.</em></p><span class="creative-handnote" aria-hidden="true">leave the sensible shoes at the door ↗</span></section>
-  <div class="container creative-content"><section class="story-section" aria-labelledby="stories-title"><div class="story-heading"><span class="section-label">01 / STORIES & SMALL WONDERS</span><h2 id="stories-title">From the <em>notebook.</em></h2></div>{stories.length > 0 ? <div class="story-list">{stories.map((story) => <a class="story-card" href={`/off-the-clock/${story.id}/`}><div><span class="section-label">{story.data.genre}</span><h3>{story.data.title}</h3><p>{story.data.description}</p><time datetime={story.data.date.toISOString()}>{story.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</time></div><Icon name="arrow-up-right" size={24} /></a>)}</div> : <div class="story-empty"><div class="empty-book" aria-hidden="true"><Icon name="book" size={46} /><span>✧</span></div><h3>This page is waiting<br />for its first story.</h3><p>The creative corner is here.<br />The first piece will arrive when it’s ready.</p><span class="empty-note">A blank page is a pretty good beginning.</span></div>}</section><PromptJar /></div>
+<BaseLayout title="Off the clock — Poetry & Diary | Padmaja Mazumder" description="Poetry, personal reflections, and the other side of Padmaja Mazumder's notebook. Browse the diary, read a poem, or follow a small what-if.">
+  <section class="creative-hero container">
+    <a class="back-link" href="/"><Icon name="arrow-right" size={16} /> Back to the portfolio</a>
+    <p class="section-label">THE OTHER SIDE OF THE NOTEBOOK</p>
+    <h1>Off the <em>clock.</em><span class="creative-asterisk" aria-hidden="true">✳</span></h1>
+    <p>Poetry, half-spoken thoughts,<br class="desktop-break" /> and feelings that needed somewhere to <em>land.</em></p>
+    <span class="creative-handnote" aria-hidden="true">some things are better written than said ↗</span>
+    <nav class="creative-page-nav" aria-label="On this page"><a href="#notebook">The diary <Icon name="arrow-down" size={14} /></a><a href="#beyond-words">Beyond words <Icon name="arrow-down" size={14} /></a><a href="#what-if">A little what if <Icon name="sparkle" size={14} /></a></nav>
+  </section>
+
+  <div class="container diary-content"><DiaryCollection stories={stories} /></div>
+
+  <section class="creative-extras container" aria-label="More off the clock">
+    <div class="beyond-words" id="beyond-words">
+      <p class="section-label">02 / ANOTHER KIND OF EXPRESSION</p>
+      <h2>Beyond the <em>page.</em></h2>
+      <p class="beyond-intro">A few other ways I’ve learned to express myself.</p>
+      <div class="creative-interests">{creativeInterests.map((interest, index) => <div class="creative-interest"><span class="interest-number" aria-hidden="true">0{index + 1}</span><div><h3>{interest.title}</h3><p>{interest.description}</p></div><Icon name={interest.icon} size={23} /></div>)}</div>
+      <p class="beyond-handnote" aria-hidden="true">rhythm, words, and everything in between.</p>
+    </div>
+    <div id="what-if"><PromptJar /></div>
+  </section>
+
   <section class="creative-return container"><span>Looking for APIs rather than alternate universes?</span><a class="text-link" href="/#work">Back to the builds <Icon name="arrow-up-right" size={18} /></a></section>
 </BaseLayout>

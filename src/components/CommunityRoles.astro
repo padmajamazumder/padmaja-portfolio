@@ -1,0 +1,7 @@
+---
+import { communityRoles } from '../data/portfolio';
+---
+<section class="community-section" aria-labelledby="community-title">
+  <div class="community-heading"><div><p class="section-label">BEYOND INDIVIDUAL CONTRIBUTION</p><h3 id="community-title">Building with <em>people.</em></h3></div><p>Workshops, campus communities,<br class="desktop-break" /> and learning to make things happen together.</p></div>
+  <div class="community-grid">{communityRoles.map((item) => <article class="community-card"><span class="community-context">{item.context}</span><h4>{item.organization}</h4><p class="community-role">{item.role}</p><p class="community-description">{item.description}</p></article>)}</div>
+</section>

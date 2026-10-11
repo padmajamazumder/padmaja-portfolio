@@ -1,6 +1,6 @@
 # Padmaja's portfolio
 
-A static Astro portfolio for software engineering opportunities, with Salesforce experience, selected projects, a downloadable résumé, and a small creative-writing corner.
+A static Astro portfolio for software engineering opportunities, with Salesforce experience, selected projects, a downloadable résumé, and a creative-writing diary.
 
 ## Run locally
 
@@ -43,12 +43,17 @@ Official references: [Direct Upload](https://developers.cloudflare.com/pages/get
 - **Main-page introduction and section copy:** `src/pages/index.astro`.
 - **Résumé:** replace `public/Padmaja-Resume.pdf` (keep the filename, or update the profile's `resume` path).
 - **Creative-page copy:** `src/pages/off-the-clock/index.astro`.
+- **Diary cards, search, and theme filters:** `src/components/DiaryCollection.astro`.
+- **Diaries and poem text:** `src/content/stories/`.
+- **Original diary artwork:** `src/assets/diary/`. Astro generates responsive WebP assets at build time; the public site makes no requests to the old portfolio.
+- **Poem reading pages:** `src/pages/off-the-clock/[...id].astro`.
+- **Diary and reading-page styles:** `src/styles/diary.css`.
 - **Writing prompts:** `src/components/PromptJar.astro`.
 - **Colors, typography, spacing, responsive layouts:** `src/styles/global.css`.
 - **Page metadata:** `src/layouts/BaseLayout.astro` and `PUBLIC_SITE_URL`.
 - **Sharing artwork:** `public/social-card.png`, generated from `public/social-card.svg`.
 
-The résumé supplied for this project is stored unchanged. Work history, qualifications, and coding metrics are based on it; periodically update time-sensitive information. Salesforce certificate names were not included in the résumé and have deliberately not been invented. Add the real credentials when available.
+The résumé supplied for this project is stored unchanged. Work history, qualifications, and coding metrics are based on it; periodically update time-sensitive information. Earlier education, community-role details, and arts training also use the owner's previous portfolio. Where dates conflict, the résumé takes precedence. Salesforce certificate names were not included in the résumé and have deliberately not been invented. Add the real credentials when available.
 
 ## Publish creative writing
 
@@ -66,10 +71,26 @@ draft: false
 Your story goes here.
 ```
 
-The filename becomes the URL: `the-lantern.md` → `/off-the-clock/the-lantern/`. Published stories appear newest first. `draft: true` keeps a story out of both the public list and generated routes. The included `untitled-draft.md` is an unpublished editing template. Keep dates in `YYYY-MM-DD` format.
+The filename becomes the URL: `the-lantern.md` → `/off-the-clock/the-lantern/`. Dated stories appear newest first; undated entries use their `order` value. `draft: true` keeps a story out of both the public list and generated routes. The included `untitled-draft.md` is an unpublished editing template. Dates are optional; when present, use `YYYY-MM-DD`. Do not invent dates for older writing.
+
+The diary includes all eight original poems from https://padmajam.vercel.app/diary, with their original titles, wording, excerpts, tags, image pairings, and reading-time metadata. Each poem has a separate shareable page, next/previous navigation, and readable stanza spacing. Search matches titles, text, and tags. Theme filters use the original tags. All entries and reading links work with JavaScript disabled; search and filters enhance the static page when JavaScript is available.
+
+Optional frontmatter supports `excerpt`, `cover`, `coverAlt`, `tags`, `order`, and `readTimeMinutes`. For example:
+
+```yaml
+genre: "Poetry"
+excerpt: "The first line\nThe second line"
+cover: "../../assets/diary/your-image.jpg"
+coverAlt: "A brief description of the image."
+tags: ["Poetry", "Reflection"]
+order: 9
+readTimeMinutes: 2
+```
+
+Store images in `src/assets/diary/` and keep the full artwork visible. In Markdown poems, finish each line with two spaces to retain its line break, and leave a blank line between stanzas. The imported poetry's spelling and punctuation are intentionally preserved.
 
 ## Project review and future work
 
-`docs/project-review.md` documents the public source review and the selected projects. `AGENTS.md` records the owner's decisions, content rules, structure, and maintenance guidance for later sessions.
+`docs/project-review.md` documents the public source review and the selected projects. `docs/legacy-import.md` records the previous-portfolio migration and any conflicting information; `docs/legacy-diary-source.json` preserves the extracted diary source for text comparisons. `AGENTS.md` records the owner's decisions, content rules, structure, and maintenance guidance for later sessions.
 
 Local Git commits use the repository's existing author configuration. Commit signing can be disabled per command if the configured signing key requires an unavailable interactive prompt. No remote publication is needed to run or deploy this site through Direct Upload.

@@ -2,7 +2,7 @@
 
 A static Astro portfolio for software engineering opportunities, with Salesforce experience, selected projects, a shared résumé, and a creative-writing diary.
 
-Production address: [padmaja-portfolio.pages.dev](https://padmaja-portfolio.pages.dev). Cloudflare Pages project: `padmaja-portfolio`.
+Production address: [padmaja.pages.dev](https://padmaja.pages.dev). Cloudflare Pages project: `padmaja`.
 
 Source repository: [padmajamazumder/padmaja-portfolio](https://github.com/padmajamazumder/padmaja-portfolio). At the owner's request, all eight initial commits were rewritten and force-pushed with Padmaja Mazumder as author and committer, preserving their messages and file contents. New commits use Padmaja's repository-local identity and are unsigned.
 
@@ -37,14 +37,14 @@ The initial connection is configured. These settings document the setup for futu
 
 | Setting | Value |
 | --- | --- |
-| Project name | `padmaja-portfolio` |
+| Project name | `padmaja` |
 | Production branch | `main` |
 | Framework | Astro |
 | Build command | `npm run build` |
 | Output directory | `dist` |
 | Root directory | Repository root |
 | `NODE_VERSION` | `22.23.3` |
-| `PUBLIC_SITE_URL` | `https://padmaja-portfolio.pages.dev` |
+| `PUBLIC_SITE_URL` | `https://padmaja.pages.dev` |
 
 4. Set the environment variables for production and previews, then deploy. Check the build status in the Pages dashboard.
 5. For local production builds, copy `.env.example` to `.env` and set the same `PUBLIC_SITE_URL`. This enables correct canonical links and absolute social-sharing image URLs.
@@ -52,8 +52,8 @@ The initial connection is configured. These settings document the setup for futu
 Wrangler can inspect and deploy the project once it exists. To upload a locally built version to the same project:
 
 ```sh
-PUBLIC_SITE_URL=https://padmaja-portfolio.pages.dev npm run build
-npx wrangler pages deploy dist --project-name padmaja-portfolio --branch main
+PUBLIC_SITE_URL=https://padmaja.pages.dev npm run build
+npx wrangler pages deploy dist --project-name padmaja --branch main
 ```
 
 Do not use `wrangler pages project create` for the initial setup: it creates a Direct Upload project without Git integration. Git-connected project creation uses the dashboard or Cloudflare's management API after the GitHub App is authorized.

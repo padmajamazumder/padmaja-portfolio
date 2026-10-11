@@ -42,6 +42,8 @@ Official references: [Direct Upload](https://developers.cloudflare.com/pages/get
 - **Personal details, links, projects, experience, skills, education:** `src/data/portfolio.ts`.
 - **Main-page introduction and section copy:** `src/pages/index.astro`.
 - **Résumé:** replace `public/Padmaja-Resume.pdf` (keep the filename, or update the profile's `resume` path).
+- **Google Drive résumé:** when the owner supplies a link, set `profile.resume` to that shared-file URL and deploy once. Set Drive access to **Anyone with the link → Viewer**. For later résumé changes, use Drive's **Manage versions → Upload new version** on the same file; its file ID and portfolio link stay the same, so no portfolio rebuild is needed. Uploading a separate new file creates a different link. Keep the supplied local PDF as the project archive.
+- **Certifications and learning profiles:** edit `qualifications` in `src/data/portfolio.ts`. Use `kind: 'profile'` for a learning profile and `kind: 'certificate'` for a document. The ten entries come from the previous portfolio; the Diploma uses the working résumé link because the old portfolio's link is missing.
 - **Creative-page copy:** `src/pages/off-the-clock/index.astro`.
 - **Diary cards, search, and theme filters:** `src/components/DiaryCollection.astro`.
 - **Diaries and poem text:** `src/content/stories/`.
@@ -50,10 +52,11 @@ Official references: [Direct Upload](https://developers.cloudflare.com/pages/get
 - **Diary and reading-page styles:** `src/styles/diary.css`.
 - **Writing prompts:** `src/components/PromptJar.astro`.
 - **Colors, typography, spacing, responsive layouts:** `src/styles/global.css`.
+- **Small text:** `--text-small` in `src/styles/global.css` controls the enlarged 14px labels, tags, metadata, and other text previously sized at 12px or below, including mobile and diary styles. Existing larger text and headline sizes are unchanged.
 - **Page metadata:** `src/layouts/BaseLayout.astro` and `PUBLIC_SITE_URL`.
 - **Sharing artwork:** `public/social-card.png`, generated from `public/social-card.svg`.
 
-The résumé supplied for this project is stored unchanged. Work history, qualifications, and coding metrics are based on it; periodically update time-sensitive information. Earlier education, community-role details, and arts training also use the owner's previous portfolio. Where dates conflict, the résumé takes precedence. Salesforce certificate names were not included in the résumé and have deliberately not been invented. Add the real credentials when available.
+The résumé supplied for this project is stored unchanged. Work history and coding metrics are based on it; periodically update time-sensitive information. Certification names and learning profiles, earlier education, community-role details, and arts training also use the owner's previous portfolio. Where dates conflict, the résumé takes precedence. Salesforce certificate names have not been supplied and have deliberately not been invented. Add the real credentials when available.
 
 ## Publish creative writing
 

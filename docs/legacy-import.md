@@ -34,6 +34,19 @@ The working project route on the previous site is `/projects`, rather than `/pro
 
 This migration uses anonymous public HTTP requests. There was no GitHub login, remote change, or publication.
 
+## Certifications and readability update
+
+At the owner's request, the current deployed `/about` source was checked again on 11 October 2026. Its ten certification and learning entries are preserved in `docs/legacy-certifications-source.json` and displayed under “Certifications & learning”. Titles are retained; Google Cloud profiles are labeled as learning profiles rather than individual certifications. Internship and workshop documents do not add employment dates or imply Salesforce credentials.
+
+- Seven original Google Drive document URLs opened anonymously with HTTP 200 and the expected certificate filenames.
+- The original Diploma in Programming link (`1ku3uQMmibivFuemHvPpmV8Qg7bCny2lJ`) returned HTTP 404. The résumé's link (`1fWuwXlwdQeGwpeL2yGYkxhAB4bB9eLeK`) returned HTTP 200 with the title “diploma in prog certificate .pdf”. That working link is used instead.
+- Both Google Cloud Skills Boost profiles returned HTTP 403 to automated HTTP requests. Their exact existing public URLs are retained; their availability was not independently confirmed in this check.
+- The project screenshot supplied by the owner was considered as context. The existing SellSphere description continues to use the reviewed campaign, ad-request, negotiation, and role-specific workflow features. Its screenshot's payment, earnings, and fraud-prevention claims have not been established by the source review.
+- Renamed “My working toolkit” to “Worked with”. Text previously at 12px or below now uses the shared 14px `--text-small` token across the home, diary, and reading pages. Larger text and headline sizes are unchanged.
+- The owner plans to supply a Google Drive résumé link. Until it arrives, résumé links continue to use the supplied local PDF. README documents public-viewer sharing and same-file version replacement so future résumé updates preserve the URL.
+
+This update passed `npm run check` with no diagnostics and `npm run build` with eleven static pages. Browser checks covered home, diary, and a reading page at 320, 390, 768, 1024, and 1440 pixels with no horizontal overflow. All ten rendered entries matched their source names and expected URLs, including the Diploma override. Desktop and both small-mobile home accessibility scans reported no violations. Keyboard menu controls, certificate focus, and no-JavaScript certificate/navigation access passed. Existing font-size declarations above 12px were confirmed unchanged.
+
 ## Validation
 
 - Astro/TypeScript check: no diagnostics. Production build: eleven static pages, including all eight poems.

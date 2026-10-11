@@ -22,6 +22,8 @@ Build Padmaja Mazumder's personal portfolio for recruiters hiring for software e
 - Public repository source may be reviewed through anonymous HTTP requests. Do not require GitHub authentication.
 - Do not invent credentials, project results, employment dates, personal writing, or live-demo status.
 - Salesforce certificate names have not been supplied; do not display invented badges.
+- The owner authorized importing the previous About page's ten certification and learning entries. Preserve their names and source URLs except for the missing Diploma link: use the working link from the résumé. `docs/legacy-certifications-source.json` and `docs/legacy-import.md` record the sources and link checks. Learning profiles are not individual certifications.
+- When the owner supplies a Google Drive résumé URL, use it for `profile.resume` and retain the supplied local PDF as an archive. Updating the same Drive file through Manage versions preserves the URL; a new file does not.
 - Keep client work described at the résumé's level of detail. Do not add client names or proprietary source.
 
 ## Structure
@@ -39,6 +41,8 @@ Build Padmaja Mazumder's personal portfolio for recruiters hiring for software e
 ## Design and accessibility
 
 Use warm cream, deep green, restrained orange accents, generous spacing, and readable editorial typography. Keep mobile layouts polished. Use semantic HTML, visible keyboard focus, sufficient contrast, real links, reduced-motion support, and meaningful accessible labels. Essential content must work without JavaScript. Keep external links safe with `rel="noopener noreferrer"` when opening a new tab.
+
+The toolkit heading is “Worked with”. Use `--text-small` (14px) for text previously at 12px or below; preserve larger text and headline sizes.
 
 ## Validation and maintenance
 

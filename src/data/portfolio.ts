@@ -135,7 +135,14 @@ export const creativeInterests = [
 ];
 
 export const qualifications = [
-  { title: 'Diploma in Programming', issuer: 'IIT Madras', url: 'https://drive.google.com/file/d/1fWuwXlwdQeGwpeL2yGYkxhAB4bB9eLeK/view' },
-  { title: 'Foundation · Programming & Data Science', issuer: 'IIT Madras', url: 'https://drive.google.com/file/d/1gAoKPJhoM7PrgCpuGDhyUxQaXxYnDUpq/view' },
-  { title: 'Google Cloud Skills Boost', issuer: 'Public learning profile', url: 'https://www.cloudskillsboost.google/public_profiles/658f7312-733c-4a2e-ad36-13bd1e554594' },
+  { title: 'Diploma in Programming', issuer: 'IIT Madras', kind: 'certificate', url: 'https://drive.google.com/file/d/1fWuwXlwdQeGwpeL2yGYkxhAB4bB9eLeK/view' },
+  { title: 'Foundation in Data Science', issuer: 'IIT Madras', kind: 'certificate', url: 'https://drive.google.com/file/d/1gAoKPJhoM7PrgCpuGDhyUxQaXxYnDUpq/view?usp=sharing' },
+  { title: 'Google Cloud Skills Boost', issuer: 'Google Cloud · Public learning profile', kind: 'profile', url: 'https://www.cloudskillsboost.google/public_profiles/658f7312-733c-4a2e-ad36-13bd1e554594' },
+  { title: 'Gen AI Study Jams', issuer: 'Google Cloud · Public learning profile', kind: 'profile', url: 'https://www.cloudskillsboost.google/public_profiles/210f6064-c521-47c2-8a0f-163a700777f2' },
+  { title: 'Social Summer Of Code', issuer: 'Participation certificate', kind: 'certificate', url: 'https://drive.google.com/file/d/1_m6VnHB_Aj65BsZKHofAy-hD7DBNKvOD/view?usp=drive_link' },
+  { title: 'Intern at TeccGadgets', issuer: 'Internship certificate', kind: 'certificate', url: 'https://drive.google.com/file/d/1TYPMvKZEqPf1Lz_mN3zrNCnUEXN-LA4V/view?usp=drive_link' },
+  { title: 'Cloud Computing Intern', issuer: 'Internship certificate', kind: 'certificate', url: 'https://drive.google.com/file/d/1Ajx48EfallOwaUbOMhey1380rz7bTTNq/view?usp=sharing' },
+  { title: 'Robotics Workshop by IEEE', issuer: 'Workshop certificate', kind: 'certificate', url: 'https://drive.google.com/file/d/1V6OOtP4GJptjrCDw3kyzOBuAaGNninXx/view?usp=sharing' },
+  { title: 'Drone Workshop by MEITY', issuer: 'Workshop certificate', kind: 'certificate', url: 'https://drive.google.com/file/d/1oHFTMdHse0iSpm0yHRFpnqDbSvkl2eLh/view?usp=sharing' },
+  { title: 'Indian Oil Corporation Limited trainee', issuer: 'Training certificate', kind: 'certificate', url: 'https://drive.google.com/file/d/1Id0y09xxyGjZpm2FQzL4fOYhY4ReXU_T/view?usp=sharing' },
 ];

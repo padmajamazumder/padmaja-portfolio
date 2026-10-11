@@ -2,6 +2,8 @@
 
 A static Astro portfolio for software engineering opportunities, with Salesforce experience, selected projects, a shared résumé, and a creative-writing diary.
 
+Production address: [padmaja-portfolio.pages.dev](https://padmaja-portfolio.pages.dev). Cloudflare Pages project: `padmaja-portfolio`.
+
 Source repository: [padmajamazumder/padmaja-portfolio](https://github.com/padmajamazumder/padmaja-portfolio). At the owner's request, all eight initial commits were rewritten and force-pushed with Padmaja Mazumder as author and committer, preserving their messages and file contents. New commits use Padmaja's repository-local identity and are unsigned.
 
 ## Run locally
@@ -25,7 +27,9 @@ npm run preview
 
 ## Deploy for free on Cloudflare Pages
 
-The owner chose **Pages with Git integration**, so pushing to `main` will publish future updates after the initial connection is configured. Use the Cloudflare account `ipadmajamazumder@gmail.com` (equivalent to `ipadmaja.mazumder@gmail.com`) and GitHub account `padmajamazumder`.
+The project is connected to **Pages with Git integration**. Pushing to `main` triggers production builds; other branches receive preview builds. Use the Cloudflare account `ipadmajamazumder@gmail.com` (equivalent to `ipadmaja.mazumder@gmail.com`) and GitHub account `padmajamazumder`.
+
+The initial connection is configured. These settings document the setup for future maintenance or recreation:
 
 1. In Cloudflare **Workers & Pages**, create a **Pages** project and choose **Connect to Git**.
 2. Authorize the Cloudflare Pages GitHub App for `padmajamazumder/padmaja-portfolio`. Wrangler authentication and GitHub CLI authentication are separate from this repository-access grant.
@@ -40,7 +44,7 @@ The owner chose **Pages with Git integration**, so pushing to `main` will publis
 | Output directory | `dist` |
 | Root directory | Repository root |
 | `NODE_VERSION` | `22.23.3` |
-| `PUBLIC_SITE_URL` | The final `https://…pages.dev` URL |
+| `PUBLIC_SITE_URL` | `https://padmaja-portfolio.pages.dev` |
 
 4. Set the environment variables for production and previews, then deploy. Check the build status in the Pages dashboard.
 5. For local production builds, copy `.env.example` to `.env` and set the same `PUBLIC_SITE_URL`. This enables correct canonical links and absolute social-sharing image URLs.

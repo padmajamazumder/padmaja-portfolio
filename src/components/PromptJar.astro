@@ -1,0 +1,36 @@
+---
+import Icon from './Icon.astro';
+---
+<section class="prompt-jar" aria-labelledby="prompt-title">
+  <div class="prompt-heading"><Icon name="sparkle" size={24} /><span class="section-label">THE WHAT-IF JAR</span><span class="prompt-number" aria-hidden="true">01 / 08</span></div>
+  <h2 id="prompt-title">A small spark for<br /><em>a bigger story.</em></h2>
+  <p class="prompt-intro">A few fantasy writing prompts. Pick one, follow the thought, see where it goes.</p>
+  <blockquote id="writing-prompt" aria-live="polite" aria-atomic="true">“A cartographer discovers that every map they draw changes the world a little.”</blockquote>
+  <button class="button button-primary prompt-button" type="button" hidden>Another what if <Icon name="sparkle" size={16} /></button>
+  <noscript><p class="prompt-footnote">A what-if to take with you. Where would you draw the next path?</p></noscript>
+  <span class="prompt-footnote">No right answers. That’s the nice part.</span>
+</section>
+<script>
+  const prompts = [
+    'A cartographer discovers that every map they draw changes the world a little.',
+    'The moon is a library. Tonight, someone has returned a book three centuries late.',
+    'A city forgets one word every sunrise. A quiet archivist is trying to save them all.',
+    'An apprentice dragon keeper finds that the smallest dragon hoards unfinished stories.',
+    'At the end of every abandoned railway, there is a station that only opens in dreams.',
+    'A clockmaker repairs a broken watch and accidentally gives someone an extra Tuesday.',
+    'The forest has begun sending letters. They are all addressed to the same person.',
+    'A lighthouse guides lost ideas home. One night, an idea refuses to leave.',
+  ];
+  const button = document.querySelector<HTMLButtonElement>('.prompt-button');
+  const output = document.querySelector<HTMLElement>('#writing-prompt');
+  const number = document.querySelector<HTMLElement>('.prompt-number');
+  let current = 0;
+  if (button && output && number) {
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      current = (current + 1) % prompts.length;
+      output.textContent = `“${prompts[current]}”`;
+      number.textContent = `${String(current + 1).padStart(2, '0')} / ${String(prompts.length).padStart(2, '0')}`;
+    });
+  }
+</script>

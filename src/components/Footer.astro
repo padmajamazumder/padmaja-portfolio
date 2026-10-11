@@ -1,0 +1,13 @@
+---
+import Icon from './Icon.astro';
+import { profile } from '../data/portfolio';
+---
+<footer class="site-footer container">
+  <a class="footer-name" href="/">Padmaja Mazumder<span>Made with care & a little curiosity.</span></a>
+  <div class="footer-links">
+    <a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub <Icon name="arrow-up-right" size={14} /></a>
+    <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <Icon name="arrow-up-right" size={14} /></a>
+    <a href={`mailto:${profile.email}`}>Email <Icon name="arrow-up-right" size={14} /></a>
+  </div>
+  <p>© {new Date().getFullYear()} · Bengaluru, India</p>
+</footer>

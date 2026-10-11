@@ -1,0 +1,41 @@
+---
+import Icon from './Icon.astro';
+import { profile } from '../data/portfolio';
+const atHome = Astro.url.pathname === '/';
+const onCreativePage = Astro.url.pathname.startsWith('/off-the-clock');
+---
+<header class="site-header">
+  <div class="header-inner container">
+    <a class="wordmark" href="/" aria-label="Padmaja Mazumder — home">padmaja<span class="wordmark-dot">.</span><span class="wordmark-caption">a curious developer</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation" hidden><Icon name="menu" /></button>
+    <nav id="site-navigation" class="site-nav" aria-label="Main navigation">
+      <a href={atHome ? '#work' : '/#work'}>Work</a>
+      <a href={atHome ? '#experience' : '/#experience'}>Experience</a>
+      <a href={atHome ? '#about' : '/#about'}>About</a>
+      <a href="/off-the-clock/" class:list={{ 'creative-nav': true, active: onCreativePage }} aria-current={onCreativePage ? 'page' : undefined}>Off the clock <Icon name="sparkle" size={14} /></a>
+    </nav>
+    <a href={profile.resume} class="header-resume" target="_blank" rel="noopener noreferrer">Résumé <Icon name="arrow-up-right" size={16} /></a>
+  </div>
+</header>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.querySelector<HTMLElement>('.site-nav');
+  if (toggle && nav) {
+    toggle.hidden = false;
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      nav.classList.toggle('is-open', open);
+    };
+    document.documentElement.dataset.navigation = 'enhanced';
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    window.matchMedia('(min-width: 821px)').addEventListener('change', () => setOpen(false));
+  }
+</script>

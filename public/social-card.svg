@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7f6f0"/>
+  <rect x="850" y="40" width="310" height="550" rx="14" fill="#e8ede3"/>
+  <g stroke="#244b3f" stroke-width="2" fill="none">
+    <ellipse cx="1005" cy="302" rx="138" ry="76" transform="rotate(-45 1005 302)"/>
+    <ellipse cx="1005" cy="302" rx="138" ry="76" transform="rotate(45 1005 302)"/>
+  </g>
+  <circle cx="1005" cy="302" r="51" fill="#244b3f"/>
+  <path d="m990 285-15 17 15 17m30-34 15 17-15 17m-11-37-8 40" fill="none" stroke="#f7f6f0" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="914" cy="203" r="10" fill="#db9368"/>
+  <circle cx="1100" cy="398" r="8" fill="#db9368"/>
+  <text x="65" y="92" font-family="Arial,sans-serif" font-size="24" font-weight="600" fill="#244b3f">padmaja<tspan fill="#b85a33">.</tspan></text>
+  <text x="65" y="180" font-family="Arial,sans-serif" font-size="13" letter-spacing="3" fill="#626a61">PADMAJA MAZUMDER · BENGALURU, INDIA</text>
+  <text x="62" y="274" font-family="Arial,sans-serif" font-size="76" letter-spacing="-4" fill="#253b32">Developer.</text>
+  <text x="62" y="362" font-family="Arial,sans-serif" font-size="76" letter-spacing="-4" fill="#253b32">Builder.</text>
+  <text x="62" y="448" font-family="Georgia,serif" font-size="67" font-style="italic" letter-spacing="-2" fill="#244b3f">Curious by default.</text>
+  <path d="M65 514h724" stroke="#dedfd5"/>
+  <text x="65" y="556" font-family="Arial,sans-serif" font-size="18" fill="#626a61">Backend systems · Salesforce · Software engineering</text>
+  <text x="886" y="548" font-family="Georgia,serif" font-size="22" font-style="italic" fill="#436355">A little logic.</text>
+  <text x="886" y="576" font-family="Georgia,serif" font-size="22" font-style="italic" fill="#436355">A little imagination.</text>
+</svg>

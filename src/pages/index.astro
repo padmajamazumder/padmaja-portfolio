@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { profile, projects, otherBuilds, experience, skills, education, qualifications } from '../data/portfolio';
+---
+<BaseLayout>
+  <section class="hero container" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="status-dot"></span> HELLO, I’M PADMAJA MAZUMDER</p>
+      <h1 id="hero-title">Developer.<br />Builder.<br /><em>Curious by default.</em></h1>
+      <p class="hero-description">I build backend systems, connect APIs, and turn complex workflows into useful software. Currently at <strong>ZS Associates</strong>, exploring my next chapter in <strong>software engineering.</strong></p>
+      <div class="hero-actions"><a class="button button-primary" href="#work">Explore my work <Icon name="arrow-down" size={17} /></a><a class="text-link" href="#contact">Let’s connect <Icon name="arrow-up-right" size={18} /></a></div>
+      <div class="hero-socials"><span>FIND ME ON</span><a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="Padmaja on GitHub"><Icon name="github" size={18} /></a><a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Padmaja on LinkedIn"><Icon name="linkedin" size={18} /></a><a href={profile.leetcode} target="_blank" rel="noopener noreferrer" aria-label="Padmaja on LeetCode"><Icon name="code" size={19} /></a><span class="social-divider"></span><span class="hero-location"><Icon name="globe" size={14} /> Bengaluru, India</span></div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="art-topline"><span>A SMALL FIELD NOTE</span><span>№ 001</span></div>
+      <div class="orbit-art">
+        <svg viewBox="0 0 460 375" fill="none"><g stroke="#78968a" stroke-width="1" opacity=".45"><path d="M60 60h340M60 130h340M60 200h340M60 270h340M90 35v280M160 35v280M230 35v280M300 35v280M370 35v280"/></g><ellipse cx="235" cy="168" rx="150" ry="82" transform="rotate(-35 235 168)" stroke="#244b3f" stroke-width="2"/><ellipse cx="235" cy="168" rx="150" ry="82" transform="rotate(35 235 168)" stroke="#244b3f" stroke-width="2"/><circle cx="235" cy="168" r="62" fill="#244b3f"/><path d="m220 150-16 18 16 18m30-36 16 18-16 18m-12-40-8 40" stroke="#f5f4ea" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="106" cy="93" r="12" fill="#db9368" stroke="#eaf0e6" stroke-width="5"/><circle cx="363" cy="249" r="10" fill="#db9368" stroke="#eaf0e6" stroke-width="5"/><circle cx="344" cy="72" r="5" fill="#244b3f"/><path d="M80 290h18m-9-9v18M365 30h18m-9-9v18" stroke="#244b3f" stroke-width="1.5"/><path d="M289 303q35 0 53-19" stroke="#244b3f" stroke-width="1.5" stroke-dasharray="3 4"/><path d="m333 280 12 0-3 12" stroke="#244b3f" stroke-width="1.5"/></svg>
+        <div class="art-tag tag-one">a little logic</div><div class="art-tag tag-two">a little imagination</div>
+      </div>
+      <p class="art-handnote">Good things start<br />with a little curiosity.</p>
+      <div class="art-bottomline"><span><span class="tiny-cross">+</span> THINK. BUILD. KEEP LEARNING.</span><span>↗</span></div>
+    </div>
+    <div class="hero-bottom"><span>BACKEND THINKING. HUMAN TOUCH.</span><a href="#work">A few things I’ve built <Icon name="arrow-down" size={14} /></a></div>
+  </section>
+
+  <div class="highlights-strip">
+    <div class="container highlights-inner"><p>A habit of<br /><em>figuring things out.</em></p><a href={profile.leetcode} target="_blank" rel="noopener noreferrer"><strong>500<span>+</span></strong><span>DSA problems solved <Icon name="arrow-up-right" size={14} /></span></a><a href={profile.leetcode} target="_blank" rel="noopener noreferrer"><strong>2416</strong><span>LeetCode · Guardian <Icon name="arrow-up-right" size={14} /></span></a><div><strong>150<span>+</span></strong><span>REST payloads automated at ZS</span></div></div>
+  </div>
+
+  <section class="section container" id="work" aria-labelledby="work-title">
+    <div class="section-heading"><div><p class="section-label">01 / SELECTED WORK</p><h2 id="work-title">Built to solve.<br /><em>Made to learn.</em></h2></div><div class="heading-aside"><p>Backend services, full-stack workflows,<br class="desktop-break" /> and a detour into 3D navigation.</p><a class="text-link" href={profile.github} target="_blank" rel="noopener noreferrer">All repositories <Icon name="arrow-up-right" size={17} /></a></div></div>
+    <div class="projects-grid">{projects.map((project) => <ProjectCard project={project} />)}</div>
+    <div class="other-builds"><div class="other-builds-label"><Icon name="branch" size={19} /><span>A FEW OTHER BUILDS</span></div><div class="other-builds-grid">{otherBuilds.map((build) => <a class="other-build" href={build.url} target="_blank" rel="noopener noreferrer"><div class="other-build-top"><Icon name={build.icon} size={21} /><Icon name="arrow-up-right" size={18} /></div><h3>{build.name}</h3><p>{build.description}</p><span>{build.stack}</span></a>)}</div></div>
+  </section>
+
+  <section class="experience-section" id="experience" aria-labelledby="experience-title">
+    <div class="container experience-grid"><div class="experience-intro"><p class="section-label">02 / THE JOURNEY SO FAR</p><h2 id="experience-title">Learning by<br /><em>doing the work.</em></h2><p>From backend API integrations to business-critical Salesforce workflows. Each role has added a new way to think about systems.</p><a class="text-link" href={profile.resume} target="_blank" rel="noopener noreferrer">The full résumé <Icon name="arrow-up-right" size={17} /></a><span class="experience-doodle" aria-hidden="true">keep connecting the dots ↗</span></div><div class="timeline">{experience.map((job) => <article class="timeline-item"><div class="timeline-dot" class:list={{ current: job.current }}></div><div class="job-top"><span>{job.dates}</span>{job.current && <span class="current-label">CURRENT</span>}</div><h3>{job.company}</h3><p class="job-role">{job.role}</p><p class="job-context">{job.context}</p><p class="job-description">{job.summary}</p>{job.points.length > 0 && <ul>{job.points.map((point) => <li>{point}</li>)}</ul>}<div class="tags">{job.tags.map((tag) => <span>{tag}</span>)}</div></article>)}</div></div>
+  </section>
+
+  <section class="section container about-section" id="about" aria-labelledby="about-title">
+    <div class="about-grid"><div class="about-copy"><p class="section-label">03 / THE HUMAN PART</p><h2 id="about-title">The person behind<br /><em>the commits.</em></h2><p>I’m Padmaja, a developer based in Bengaluru. My background brings together Electronics & Instrumentation at NIT Silchar and Data Science & Programming at IIT Madras.</p><p>I enjoy the part of engineering where a messy problem becomes a clear model, an API, or a working product. My Salesforce work gives me real-world experience with that process, and I’m keen to carry it into an SDE role.</p><p>Outside the code, there’s room for a little imagination: creative writing, fantasy worlds, and ideas that don’t need a practical reason to exist.</p><a class="text-link" href="/off-the-clock/">Meet me off the clock <Icon name="sparkle" size={17} /></a></div><aside class="about-notebook" aria-label="Education and community"><div class="notebook-top"><span>A FEW CHAPTERS</span><Icon name="book" size={19} /></div>{education.map((item) => <div class="education-item"><span>{item.dates}</span><h3>{item.school}</h3><p>{item.degree}</p><small>{item.note}</small></div>)}<div class="community-note"><span class="section-label">ALSO, IN GOOD COMPANY</span><p>GDSC · Illuminits · Sundarbans House · White Hat Guild</p><small>Cloud, campus events, and cybersecurity workshops.</small></div></aside></div>
+    <div class="skills-section"><div class="skills-heading"><h3>My working toolkit</h3><p>The tools change. The fundamentals stay useful.</p></div><div class="skills-grid">{skills.map((group) => <div class="skill-group"><h4>{group.category}</h4><div class="tags">{group.items.map((item) => <span>{item}</span>)}</div></div>)}</div></div>
+    <div class="qualifications"><span class="section-label">LEARNING, ALONG THE WAY</span><div class="qualification-grid">{qualifications.map((item) => <a href={item.url} target="_blank" rel="noopener noreferrer"><div><span>{item.issuer}</span><h4>{item.title}</h4></div><Icon name="arrow-up-right" size={19} /></a>)}</div></div>
+  </section>
+
+  <section class="creative-teaser container" aria-labelledby="creative-title"><div class="teaser-star" aria-hidden="true">✳</div><div><p class="section-label">A SMALL DETOUR</p><h2 id="creative-title">Not every idea<br />needs a <em>use case.</em></h2><p>A little corner for fantasy, creative writing,<br class="desktop-break" /> and curiosity without a deadline.</p></div><a class="button button-light" href="/off-the-clock/">Step off the clock <Icon name="arrow-up-right" size={18} /></a><span class="teaser-note" aria-hidden="true">the other side of the notebook</span></section>
+
+  <section class="contact-section container" id="contact" aria-labelledby="contact-title"><div><p class="section-label"><span class="status-dot"></span> OPEN TO THE NEXT CHAPTER</p><h2 id="contact-title">Good work starts<br />with a <em>conversation.</em></h2><p>Hiring for an SDE role, building something interesting,<br class="desktop-break" /> or just want to say hello? I’d love to hear from you.</p></div><div class="contact-actions"><a class="contact-email" href={`mailto:${profile.email}`}><span>DROP ME A LINE</span><strong>{profile.email}</strong><Icon name="arrow-up-right" size={28} /></a><div class="contact-other"><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">Connect on LinkedIn <Icon name="arrow-up-right" size={15} /></a><a href={profile.phoneHref}>{profile.phone}</a></div></div></section>
+</BaseLayout>

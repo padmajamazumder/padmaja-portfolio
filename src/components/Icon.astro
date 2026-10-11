@@ -1,0 +1,27 @@
+---
+interface Props { name: string; size?: number; class?: string }
+const { name, size = 20, class: className } = Astro.props;
+const paths: Record<string, string[]> = {
+  'arrow-up-right': ['M7 17 17 7M7 7h10v10'],
+  'arrow-right': ['M5 12h14M12 5l7 7-7 7'],
+  'arrow-down': ['M12 4v16M5 13l7 7 7-7'],
+  'download': ['M12 3v12M7 10l5 5 5-5M5 16v4h14v-4'],
+  'mail': ['M3 5h18v14H3zM3 5l9 7 9-7'],
+  'github': ['M9 19c-4.3 1.3-4.3-2.2-6-2.7M15 22v-3.9c0-1.1-.4-2-1-2.6 3.4-.4 7-1.7 7-7.4 0-1.6-.6-2.9-1.6-3.9.2-.4.7-1.9-.2-3.7 0 0-1.3-.4-4.1 1.6a14 14 0 0 0-7.4 0C4.9.1 3.6.5 3.6.5c-.9 1.8-.4 3.3-.2 3.7C2.4 5.2 2 6.5 2 8.1c0 5.7 3.5 7 7 7.4-.5.5-.8 1.2-1 2.2V22'],
+  'linkedin': ['M4 9v12M4 4v.01M10 21V9h4v2c1-3 6-3 6 2v8M14 11v10'],
+  'code': ['m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18'],
+  'branch': ['M6 3v12M18 6v3c0 4-12 2-12 6M6 18v3'],
+  'document': ['M5 3h9l5 5v13H5zM14 3v6h5M8 13h8M8 17h6'],
+  'sparkle': ['m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z'],
+  'globe': ['M2 12h20M12 2a16 16 0 0 1 0 20 16 16 0 0 1 0-20'],
+  'book': ['M12 5v16M12 5C8 2 4 3 2 4v15c3-1 6-1 10 2 4-3 7-3 10-2V4c-2-1-6-2-10 1'],
+  'menu': ['M4 7h16M4 12h16M4 17h16'],
+  'check': ['m5 12 4 4L19 6'],
+  'coffee': ['M3 8h13v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4zM16 9h2a3 3 0 0 1 0 6h-2M6 2v2M10 2v2M14 2v2'],
+};
+---
+<svg class={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  {name === 'globe' && <circle cx="12" cy="12" r="10" />}
+  {name === 'branch' && <><circle cx="6" cy="16" r="3" /><circle cx="18" cy="4" r="2" /></>}
+  {(paths[name] ?? paths['arrow-right']).map((d) => <path d={d} />)}
+</svg>

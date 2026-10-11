@@ -1,0 +1,19 @@
+---
+import Icon from './Icon.astro';
+import ProjectVisual from './ProjectVisual.astro';
+import type { Project } from '../data/portfolio';
+interface Props { project: Project }
+const { project } = Astro.props;
+---
+<article class="project-card">
+  <ProjectVisual kind={project.slug} />
+  <div class="project-body">
+    <div class="project-meta"><span>{project.category}</span><span>{project.number}</span></div>
+    <h3>{project.name}</h3>
+    <p class="project-summary">{project.summary}</p>
+    <p class="project-description">{project.detail}</p>
+    <div class="tags">{project.stack.map((tag) => <span>{tag}</span>)}</div>
+    <details class="project-details"><summary>Inside the build <span>+</span></summary><ul>{project.highlights.map((item) => <li>{item}</li>)}</ul><p>{project.note}</p></details>
+    <div class="project-links"><a href={project.source} target="_blank" rel="noopener noreferrer">View source <Icon name="arrow-up-right" size={17} /></a>{project.secondary && <a href={project.secondary.url} target="_blank" rel="noopener noreferrer">{project.secondary.label} <Icon name="arrow-up-right" size={15} /></a>}</div>
+  </div>
+</article>

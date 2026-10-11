@@ -1,0 +1,24 @@
+---
+interface Props { kind: string }
+const { kind } = Astro.props;
+---
+<div class:list={['project-visual', `visual-${kind}`]} aria-hidden="true">
+  {kind === 'nanolink' && <>
+    <div class="visual-grid"></div>
+    <div class="link-before"><span class="mini-dot"></span><span>https://a-very-long-link.com/...</span></div>
+    <svg class="link-connector" viewBox="0 0 300 70" fill="none"><path d="M45 5v20Q45 40 60 40h175q20 0 20 20" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 5" /><path d="m250 53 5 7 5-7" stroke="currentColor" stroke-width="1.5" /></svg>
+    <div class="link-after"><span class="link-mark">↗</span><span>nano.link<span class="link-slug">/curiosity</span></span><span class="link-check">✓</span></div>
+    <span class="art-caption">LESS LINK. MORE POSSIBILITY.</span>
+  </>}
+  {kind === 'sellsphere' && <>
+    <div class="visual-grid"></div>
+    <div class="campaign-window">
+      <div class="window-top"><span></span><span></span><span></span><b>campaigns / overview</b></div>
+      <div class="campaign-content"><span class="campaign-mini-label">THE RIGHT CONNECTION</span><div class="campaign-flow"><span>SPONSOR</span><i>↗</i><span>CREATOR</span></div><div class="campaign-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="campaign-bottom"><span>Ideas meet opportunity.</span><span>↗</span></div></div>
+    </div>
+  </>}
+  {kind === 'aura' && <>
+    <svg class="aura-map" viewBox="0 0 380 290" fill="none"><g stroke="currentColor" opacity=".22" stroke-width="1"><path d="m45 146 147-85 146 85-147 85-146-85Z"/><path d="m75 163 147-85M104 180l147-85M133 197l147-85M162 214l147-85M75 128l146 86M104 111l146 86M133 94l146 86M162 77l146 86"/><path d="M45 146v31l147 85 146-85v-31M192 231v31"/></g><path d="m105 179 58-34 29 17 58-34" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="105" cy="179" r="6" fill="currentColor"/><path d="M250 92c-11 0-18 8-18 18 0 13 18 26 18 26s18-13 18-26c0-10-7-18-18-18Z" fill="currentColor"/><circle cx="250" cy="110" r="6" fill="#f5d8c2"/></svg>
+    <div class="aura-badge"><span class="mini-dot"></span>YOU ARE HERE</div><span class="art-caption">A LITTLE GUIDANCE GOES A LONG WAY.</span>
+  </>}
+</div>

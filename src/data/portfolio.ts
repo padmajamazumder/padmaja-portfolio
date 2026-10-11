@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Padmaja Mazumder',
   firstName: 'Padmaja',
-  email: 'padmajamazumder@gmail.com',
+  email: 'ipadmaja.mazumder@gmail.com',
   phone: '+91 84862 36371',
   phoneHref: 'tel:+918486236371',
   location: 'Bengaluru, India',
@@ -9,7 +9,7 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/padmaja-mazumder/',
   leetcode: 'https://leetcode.com/u/scoopy_scoop/',
   codeforces: 'https://codeforces.com/profile/padmajamazumder',
-  resume: '/Padmaja-Resume.pdf',
+  resume: 'https://drive.google.com/file/d/1USnawM9u4X9tNcmXKU1j0ebkBMVo74sg/view?usp=sharing',
   description: 'Padmaja Mazumder is a developer at ZS Associates in Bengaluru, building backend workflows and exploring software engineering opportunities. Projects, experience, and a little creative writing.',
 };
 

@@ -10,7 +10,7 @@ Build Padmaja Mazumder's personal portfolio for recruiters hiring for software e
 - Host on Cloudflare Pages using its free `pages.dev` subdomain.
 - Keep runtime services, databases, paid APIs, and required subscriptions out of the portfolio.
 - Make local Git commits. Do not log in to GitHub, create a remote repository, or push without a new explicit instruction.
-- Keep the supplied résumé in `public/Padmaja-Resume.pdf` and link to it from the site.
+- Keep the supplied résumé unchanged in `public/Padmaja-Resume.pdf` as an archive. Site résumé links use the owner's public Google Drive file configured in `profile.resume`.
 
 ## Content sources
 
@@ -24,6 +24,8 @@ Build Padmaja Mazumder's personal portfolio for recruiters hiring for software e
 - Salesforce certificate names have not been supplied; do not display invented badges.
 - The owner authorized importing the previous About page's ten certification and learning entries. Preserve their names and source URLs except for the missing Diploma link: use the working link from the résumé. `docs/legacy-certifications-source.json` and `docs/legacy-import.md` record the sources and link checks. Learning profiles are not individual certifications.
 - When the owner supplies a Google Drive résumé URL, use it for `profile.resume` and retain the supplied local PDF as an archive. Updating the same Drive file through Manage versions preserves the URL; a new file does not.
+- The owner supplied `https://drive.google.com/file/d/1USnawM9u4X9tNcmXKU1j0ebkBMVo74sg/view?usp=sharing` and updated the contact email to `ipadmaja.mazumder@gmail.com`. These override the original résumé's contact/link values.
+- The owner identified time management and deadline discipline as strengths that helped them pursue degrees at NIT Silchar and IIT Madras together. This About copy is authorized personal context.
 - Keep client work described at the résumé's level of detail. Do not add client names or proprietary source.
 
 ## Structure
@@ -43,6 +45,8 @@ Build Padmaja Mazumder's personal portfolio for recruiters hiring for software e
 Use warm cream, deep green, restrained orange accents, generous spacing, and readable editorial typography. Keep mobile layouts polished. Use semantic HTML, visible keyboard focus, sufficient contrast, real links, reduced-motion support, and meaningful accessible labels. Essential content must work without JavaScript. Keep external links safe with `rel="noopener noreferrer"` when opening a new tab.
 
 The toolkit heading is “Worked with”. Use `--text-small` (14px) for text previously at 12px or below; preserve larger text and headline sizes.
+
+Keep the three-number highlights strip removed. Link to the LeetCode and Codeforces profiles below the toolkit without displaying counts or ratings. The former fantasy prompt jar is replaced by a cat corner: local SVG doodles and playful captions in `src/data/cats.ts`, selected on page load or with “Another cat”. Keep the interaction free of runtime APIs, automatic rotation, and personal-poetry attribution.
 
 ## Validation and maintenance
 

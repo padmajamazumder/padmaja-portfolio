@@ -47,6 +47,16 @@ At the owner's request, the current deployed `/about` source was checked again o
 
 This update passed `npm run check` with no diagnostics and `npm run build` with eleven static pages. Browser checks covered home, diary, and a reading page at 320, 390, 768, 1024, and 1440 pixels with no horizontal overflow. All ten rendered entries matched their source names and expected URLs, including the Diploma override. Desktop and both small-mobile home accessibility scans reported no violations. Keyboard menu controls, certificate focus, and no-JavaScript certificate/navigation access passed. Existing font-size declarations above 12px were confirmed unchanged.
 
+## Subsequent owner revisions
+
+- Changed the site's contact email to `ipadmaja.mazumder@gmail.com` using the owner's explicit correction.
+- Connected both site résumé links to the owner's publicly accessible Google Drive file `1USnawM9u4X9tNcmXKU1j0ebkBMVo74sg`. Its viewer opened anonymously with the title “Padmaja_Mazumder_Cisco.pdf”. The originally supplied local PDF remains unchanged as an archive; same-file Drive version updates keep the site URL valid.
+- Removed the entire “A habit of figuring things out” highlights strip. Added named LeetCode and Codeforces links below “Worked with”; no question counts or rating are displayed there. Existing résumé-backed work and project descriptions remain separate from that removed strip.
+- Added the owner's stated time-management and deadline-discipline strength, tied to pursuing the NIT Silchar and IIT Madras degrees together. The institution name follows the résumé.
+- Replaced the fantasy prompt jar with six original local SVG cat doodles and playful UI captions. A random scene appears when the page opens; “Another cat” selects a different scene. No external API, automatic rotation, or personal-poetry attribution is involved. A scene and caption remain available without JavaScript.
+
+The production build still produces eleven static pages. Browser checks confirmed both résumé URLs, all email links, both coding profiles, the removed strip, all six cat scenes, and keyboard activation without immediate repeats. Home, diary, and a reading page fit five viewport widths from 320 to 1440 pixels. Desktop/mobile accessibility scans reported no violations on the checked pages. No-JavaScript content and navigation work; no external runtime requests or page errors were observed.
+
 ## Validation
 
 - Astro/TypeScript check: no diagnostics. Production build: eleven static pages, including all eight poems.

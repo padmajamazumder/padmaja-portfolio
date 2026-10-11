@@ -1,0 +1,62 @@
+---
+import type { CatPose } from '../data/cats';
+interface Props { pose: CatPose; description: string }
+const { pose, description } = Astro.props;
+const faceId = `cat-face-${pose}`;
+---
+<svg class="cat-doodle" viewBox="0 0 320 220" role="img" aria-label={description} fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <g id={faceId}>
+      <path d="M-33 10Q-40-3-33-13L-36-41-14-24Q0-30 14-24L36-41 33-13Q40-3 33 10Q19 28 0 26Q-19 28-33 10Z" fill="#f7f6f0" />
+      <path d="m-30-31 3 14 9-7m48-7-3 14-9-7" stroke="#a24b2b" />
+      <path d="M-21-1q5-6 10 0m22 0q5-6 10 0M0 9v4m-8 0q4 6 8 0 4 6 8 0M-27 8l-18-4m19 11-18 3m71-10 18-4m-19 11 18 3" />
+      <path d="m-4 6 4 4 4-4Z" fill="currentColor" stroke-width="1" />
+    </g>
+  </defs>
+  <path d="M55 193q104 5 210-1" stroke="#ccd4c2" stroke-width="1.5" />
+  {pose === 'box' && <>
+    <path d="M207 155q45-4 41-37-2-16-13-8-6 5-1 14" />
+    <use href={`#${faceId}`} transform="translate(162 100) rotate(-6)" />
+    <path d="m91 131 137 4-9 54-117-3Z" fill="#e7c5a7" />
+    <path d="m91 131-16 15 75 7 12-17 14 18 68-11-16-8M162 137l-3 50" />
+    <path d="M131 132v14q8 8 16 0v-13m32 2v12q8 7 16-1v-11" fill="#f7f6f0" />
+    <path d="m239 68 4-10 4 10 10 4-10 4-4 10-4-10-10-4Z" stroke="#a24b2b" stroke-width="1.8" />
+  </>}
+  {pose === 'keyboard' && <>
+    <path d="M127 168q-18-28-8-48 14-24 48-23 46 1 58 44l-4 36M225 146q32-11 26-39-2-12-13-8-7 3-2 12" fill="#f7f6f0" />
+    <use href={`#${faceId}`} transform="translate(166 88) rotate(7)" />
+    <path d="m84 150 140 5 20 33-165-5Z" fill="#e8ede3" />
+    <path d="m97 160 121 5m-125 6 131 5m-112-18-3 14m24-13-1 14m24-12-1 13m23-12v13m23-12 2 12" stroke="#80927b" stroke-width="1.5" />
+    <path d="M130 127v37q9 12 19 0l-1-32m33-1-2 34q10 12 19 0l-1-36" fill="#f7f6f0" />
+    <path d="M82 83h-9m6-13-7-5m141-15 6-8" stroke="#a24b2b" />
+  </>}
+  {pose === 'loaf' && <>
+    <path d="M99 182q-16-24-2-47 14-20 57-20 59 0 70 37 6 18-6 30Z" fill="#e7c5a7" />
+    <path d="M211 171q28 0 27-23-1-16-12-11-7 3-3 11" />
+    <use href={`#${faceId}`} transform="translate(132 110) rotate(-7)" />
+    <path d="M122 179h26m23 0h26M172 143l-5 9m22-10-5 12m19-8-4 9" stroke="#a24b2b" />
+    <path d="M87 86q-15-11-13-25m-1 18 8 8-11 3" stroke="#80927b" stroke-width="1.8" />
+  </>}
+  {pose === 'nap' && <>
+    <path d="M102 168q-25-61 24-76 44-16 74 17 30 29 7 61-12 19-44 15-42-4-37-26 5-18 28-10 22 9 30-6" fill="#e7c5a7" />
+    <use href={`#${faceId}`} transform="translate(116 137) rotate(-22) scale(.87)" />
+    <path d="M151 101q16 0 26 10m-18 0 10 7" stroke="#a24b2b" />
+    <path d="m209 86 17 2-20 14 18 2m17-47 22 2-25 18 24 2m-26-44 13 1-15 10 14 1" stroke="#80927b" stroke-width="2" />
+  </>}
+  {pose === 'book' && <>
+    <path d="M116 175q-11-37 12-57h66q25 32 8 60m2-28q45 5 44-24-1-16-12-11-7 3-3 11" fill="#f7f6f0" />
+    <use href={`#${faceId}`} transform="translate(158 97) rotate(-4)" />
+    <path d="M160 152q-25-15-65-13l5 44q35-3 60 9 23-12 60-8l5-45q-38-2-65 13Z" fill="#e8ede3" />
+    <path d="m160 153 0 39m-47-38 27 3m-26 9 28 4m36-13 29-3m-30 17 28-4" stroke="#80927b" stroke-width="1.5" />
+    <path d="M124 136v21q8 7 15-1v-14m40 0v15q9 7 16 0v-22" fill="#f7f6f0" />
+    <path d="m76 89 3-7 3 7 7 3-7 3-3 7-3-7-7-3Z" stroke="#a24b2b" stroke-width="1.6" />
+  </>}
+  {pose === 'cup' && <>
+    <path d="M110 178q-14-43 10-61 30-23 62 0 21 21 13 61m-3-21q38 13 46-10 6-19-9-21-8 0-7 10" fill="#e7c5a7" />
+    <use href={`#${faceId}`} transform="translate(150 98) rotate(6)" />
+    <path d="M122 135v36q8 11 17 0v-32m27 3v30q8 9 16-1v-36" />
+    <path d="M195 143h34v36q-16 11-34 0Zm34 6h8q15 12-1 19h-7" fill="#e8ede3" />
+    <path d="M201 126q-6-8 0-16m15 16q-6-8 0-16M107 184h131" stroke="#80927b" stroke-width="1.8" />
+    <path d="m89 61-2-4q-8-9-12-1-3 6 12 13 15-7 12-13-4-8-12 1" stroke="#a24b2b" stroke-width="1.8" />
+  </>}
+</svg>

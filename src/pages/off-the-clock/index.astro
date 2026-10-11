@@ -1,21 +1,21 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
-import PromptJar from '../../components/PromptJar.astro';
+import CatCorner from '../../components/CatCorner.astro';
 import DiaryCollection from '../../components/DiaryCollection.astro';
 import { getPublishedStories } from '../../lib/stories';
 import { creativeInterests } from '../../data/portfolio';
 import '../../styles/diary.css';
 const stories = await getPublishedStories();
 ---
-<BaseLayout title="Off the clock — Poetry & Diary | Padmaja Mazumder" description="Poetry, personal reflections, and the other side of Padmaja Mazumder's notebook. Browse the diary, read a poem, or follow a small what-if.">
+<BaseLayout title="Off the clock — Poetry & Diary | Padmaja Mazumder" description="Poetry, personal reflections, and the other side of Padmaja Mazumder's notebook. Browse the diary, read a poem, or take a little break with the cat corner.">
   <section class="creative-hero container">
     <a class="back-link" href="/"><Icon name="arrow-right" size={16} /> Back to the portfolio</a>
     <p class="section-label">THE OTHER SIDE OF THE NOTEBOOK</p>
     <h1>Off the <em>clock.</em><span class="creative-asterisk" aria-hidden="true">✳</span></h1>
     <p>Poetry, half-spoken thoughts,<br class="desktop-break" /> and feelings that needed somewhere to <em>land.</em></p>
     <span class="creative-handnote" aria-hidden="true">some things are better written than said ↗</span>
-    <nav class="creative-page-nav" aria-label="On this page"><a href="#notebook">The diary <Icon name="arrow-down" size={14} /></a><a href="#beyond-words">Beyond words <Icon name="arrow-down" size={14} /></a><a href="#what-if">A little what if <Icon name="sparkle" size={14} /></a></nav>
+    <nav class="creative-page-nav" aria-label="On this page"><a href="#notebook">The diary <Icon name="arrow-down" size={14} /></a><a href="#beyond-words">Beyond words <Icon name="arrow-down" size={14} /></a><a href="#cat-corner">The cat corner <Icon name="sparkle" size={14} /></a></nav>
   </section>
 
   <div class="container diary-content"><DiaryCollection stories={stories} /></div>
@@ -28,7 +28,7 @@ const stories = await getPublishedStories();
       <div class="creative-interests">{creativeInterests.map((interest, index) => <div class="creative-interest"><span class="interest-number" aria-hidden="true">0{index + 1}</span><div><h3>{interest.title}</h3><p>{interest.description}</p></div><Icon name={interest.icon} size={23} /></div>)}</div>
       <p class="beyond-handnote" aria-hidden="true">rhythm, words, and everything in between.</p>
     </div>
-    <div id="what-if"><PromptJar /></div>
+    <CatCorner />
   </section>
 
   <section class="creative-return container"><span>Looking for APIs rather than alternate universes?</span><a class="text-link" href="/#work">Back to the builds <Icon name="arrow-up-right" size={18} /></a></section>

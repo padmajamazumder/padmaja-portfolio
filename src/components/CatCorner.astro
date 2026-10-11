@@ -1,0 +1,36 @@
+---
+import Icon from './Icon.astro';
+import CatDoodle from './CatDoodle.astro';
+import { catMoments } from '../data/cats';
+import '../styles/cats.css';
+---
+<section class="cat-corner" id="cat-corner" aria-labelledby="cat-title">
+  <div class="cat-heading"><Icon name="sparkle" size={23} /><p class="section-label">THE CAT CORNER</p><span aria-hidden="true">✳</span></div>
+  <h2 id="cat-title">A little <em>paws.</em></h2>
+  <p class="cat-intro">Tiny doodles. Very important cat business.</p>
+  <div class="cat-moments" aria-live="polite" aria-atomic="true">
+    {catMoments.map((moment, index) => <figure class="cat-moment" hidden={index !== 0}>
+      <div class="cat-paper"><CatDoodle pose={moment.pose} description={moment.description} /><span class="cat-paper-note" aria-hidden="true">{moment.note}</span></div>
+      <figcaption>{moment.caption}</figcaption>
+    </figure>)}
+  </div>
+  <button class="button button-primary cat-button" type="button" hidden>Another cat <Icon name="sparkle" size={17} /></button>
+  <p class="cat-footnote">A small break, just because.</p>
+</section>
+<script>
+  const corner = document.querySelector<HTMLElement>('.cat-corner');
+  const button = corner?.querySelector<HTMLButtonElement>('.cat-button');
+  const moments = corner?.querySelectorAll<HTMLElement>('.cat-moment');
+  if (button && moments && moments.length > 1) {
+    let current = Math.floor(Math.random() * moments.length);
+    moments.forEach((moment, index) => { moment.hidden = index !== current; });
+    const showAnother = () => {
+      const next = (current + 1 + Math.floor(Math.random() * (moments.length - 1))) % moments.length;
+      moments[current].hidden = true;
+      moments[next].hidden = false;
+      current = next;
+    };
+    button.hidden = false;
+    button.addEventListener('click', showAnother);
+  }
+</script>

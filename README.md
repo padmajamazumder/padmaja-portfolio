@@ -1,6 +1,6 @@
 # Padmaja's portfolio
 
-A static Astro portfolio for software engineering opportunities, with Salesforce experience, selected projects, a downloadable résumé, and a creative-writing diary.
+A static Astro portfolio for software engineering opportunities, with Salesforce experience, selected projects, a shared résumé, and a creative-writing diary.
 
 ## Run locally
 
@@ -41,8 +41,8 @@ Official references: [Direct Upload](https://developers.cloudflare.com/pages/get
 
 - **Personal details, links, projects, experience, skills, education:** `src/data/portfolio.ts`.
 - **Main-page introduction and section copy:** `src/pages/index.astro`.
-- **Résumé:** replace `public/Padmaja-Resume.pdf` (keep the filename, or update the profile's `resume` path).
-- **Google Drive résumé:** when the owner supplies a link, set `profile.resume` to that shared-file URL and deploy once. Set Drive access to **Anyone with the link → Viewer**. For later résumé changes, use Drive's **Manage versions → Upload new version** on the same file; its file ID and portfolio link stay the same, so no portfolio rebuild is needed. Uploading a separate new file creates a different link. Keep the supplied local PDF as the project archive.
+- **Résumé:** all site résumé links use the owner's [public Google Drive file](https://drive.google.com/file/d/1USnawM9u4X9tNcmXKU1j0ebkBMVo74sg/view?usp=sharing), configured in `profile.resume`. The supplied `public/Padmaja-Resume.pdf` remains unchanged as an archive.
+- **Update the résumé:** use Drive's **Manage versions → Upload new version** on that same file and keep access at **Anyone with the link → Viewer**. Its file ID and portfolio link stay the same, so no portfolio rebuild is needed. Uploading a separate new file creates a different link.
 - **Certifications and learning profiles:** edit `qualifications` in `src/data/portfolio.ts`. Use `kind: 'profile'` for a learning profile and `kind: 'certificate'` for a document. The ten entries come from the previous portfolio; the Diploma uses the working résumé link because the old portfolio's link is missing.
 - **Creative-page copy:** `src/pages/off-the-clock/index.astro`.
 - **Diary cards, search, and theme filters:** `src/components/DiaryCollection.astro`.
@@ -50,13 +50,17 @@ Official references: [Direct Upload](https://developers.cloudflare.com/pages/get
 - **Original diary artwork:** `src/assets/diary/`. Astro generates responsive WebP assets at build time; the public site makes no requests to the old portfolio.
 - **Poem reading pages:** `src/pages/off-the-clock/[...id].astro`.
 - **Diary and reading-page styles:** `src/styles/diary.css`.
-- **Writing prompts:** `src/components/PromptJar.astro`.
+- **Cat corner captions and poses:** `src/data/cats.ts`; interaction in `src/components/CatCorner.astro`, original SVG artwork in `src/components/CatDoodle.astro`, and styles in `src/styles/cats.css`.
 - **Colors, typography, spacing, responsive layouts:** `src/styles/global.css`.
 - **Small text:** `--text-small` in `src/styles/global.css` controls the enlarged 14px labels, tags, metadata, and other text previously sized at 12px or below, including mobile and diary styles. Existing larger text and headline sizes are unchanged.
 - **Page metadata:** `src/layouts/BaseLayout.astro` and `PUBLIC_SITE_URL`.
 - **Sharing artwork:** `public/social-card.png`, generated from `public/social-card.svg`.
 
 The résumé supplied for this project is stored unchanged. Work history and coding metrics are based on it; periodically update time-sensitive information. Certification names and learning profiles, earlier education, community-role details, and arts training also use the owner's previous portfolio. Where dates conflict, the résumé takes precedence. Salesforce certificate names have not been supplied and have deliberately not been invented. Add the real credentials when available.
+
+The owner supplied the updated contact address `ipadmaja.mazumder@gmail.com` and the time-management strength described in About. The previous three-number highlights strip has been removed; the LeetCode and Codeforces profiles are linked below “Worked with” without counts or ratings.
+
+The cat corner replaces the fantasy prompt jar with six original SVG doodles and lighthearted UI captions. It chooses a random scene when the page opens. “Another cat” changes both drawing and caption without an immediate repeat. It does not auto-rotate while someone is reading. There are no API calls, image downloads, credentials, tracking, or subscriptions. With JavaScript disabled, the first doodle and caption remain visible. Cat captions are separate from the owner's published poetry.
 
 ## Publish creative writing
 
